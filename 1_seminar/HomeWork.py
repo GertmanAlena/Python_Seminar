@@ -87,4 +87,9 @@ Yb = float(input('Введите координат точки В на оси y 
 ab = math.sqrt((Xb - Xa)**2 + (Yb - Ya)**2)
 print(ab)
 
-# print('{:.2f}'.format(ab))
+print('{:.2f}'.format(ab))
+
+# import math
+# num = 25
+# sqrt = math.sqrt(num)
+# print("Квадратный корень из числа " + str(num) + " это " + str(sqrt))
