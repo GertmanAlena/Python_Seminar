@@ -1,3 +1,4 @@
+from enum import Flag
 import math
 from random import randint
 from re import A
@@ -171,17 +172,17 @@ from re import A
 # print(max)
 
 
-i = 1
-a = list(range(1,6)) #a = list(range(5))
-while i <= 5:
-    number = input('Введите {i}-е число + enter: ')
-    a[i-1] = number
-    if i == 1:
-        max = number
-    elif number > max:
-        max = number
-    i += 1
-print(f'max = {max}')
+# i = 1
+# a = list(range(1,6)) #a = list(range(5))
+# while i <= 5:
+#     number = input('Введите {i}-е число + enter: ')
+#     a[i-1] = number
+#     if i == 1:
+#         max = number
+#     elif number > max:
+#         max = number
+#     i += 1
+# print(f'max = {max}')
 
 
 
@@ -206,3 +207,39 @@ print(f'max = {max}')
 # else: 
 #     res = (num * 10) % 10
 #     print(int(res))
+
+                                                        # ДОП *********************** 1
+# Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. 
+# Например, пользователь ввёл число 3. Считаем 3 + 33 + 333 = 369.
+
+# n = (input('Введите n: -> '))
+# n1 = n+n
+# print(n1)
+# print()
+# n2 = n+n+n
+# print(n2)
+# print()
+# Sum = int(n) + int(n1) + int(n2)
+# print(Sum)
+
+                                                        # ДОП *********************** 2
+# Пользователь вводит целое положительное число.
+# Найдите самую большую цифру в числе. 
+# Для решения используйте цикл while и арифметические операции.
+
+a = input()
+max = 0
+for num in a:
+    if int(num) > max:
+        max = int(num)
+print(max)
+
+# i = 0
+# flag = True
+# while flag:
+#     if num[i] > max:
+#         max = num[i]
+#         i+=1
+        
+#     if i == len(num): flag = False
+# print(max)
