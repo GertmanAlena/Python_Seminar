@@ -1,5 +1,6 @@
+import math
 from random import randint
-# print(list(range(10))) 
+# print(list(range(10)))
 # print(list(range(10+1)))
 # print(list(range(2,4)))
 # print(list(range(10, 0, -1)))
@@ -62,7 +63,7 @@ from random import randint
 # print(num)
 # max = num[0]
 # min = num[1]
-# for i in num:  
+# for i in num:
 #     if i > max:
 #         max = i
 #     elif i < min:
@@ -71,15 +72,58 @@ from random import randint
 # print(sum)
 
 
+# В первый день спортсмен пробежал X километров.
+# В каждый последующий день он увеличивал пробег на 15% от предыдущего дня.
+# По данному числу Y требуется определить номер дня,
+# в который пробег спортсмена составил не менее Y километров.
 
-x = float(input('x '))  #10
-y = float(input('y '))  #20
+# x = float(input('x '))  #10
+# y = float(input('y '))  #20
 
-n = (x * 15 / 100)     #1.5
+# # n = (x * 15 / 100)     #1.5
 
-count = 0
-while x<y:
-    x = (x+n)
-    count += 1
-else:  
-    print(count)
+# count = 1
+# while x<y:
+#     n = (x * 15 / 100)
+#     x = (x+n)
+#     count += 1
+# else:
+#     print(count)
+
+
+Qx = int(input('координата x преземления дачника: -> '))
+Qy = int(input('координата y преземления дачника: -> '))
+
+Ax = 2
+Ay = 2
+Bx = 2
+By = 5
+Cx = 8
+Cy = 5
+Dx = 8
+Dy = 2
+
+a = math.sqrt((Bx - Ax)**2 + (By - Ay)**2)
+d = math.sqrt((Dx - Ax)**2 + (Dy - Ay)**2)
+c = a
+b = d
+PlPr = int(a*b)
+print()
+print(f'a = {a}, b = {b}, c = {c}, d = {d}')
+print(f'площадь прямоугольника = {PlPr}')
+print()
+
+SerA = float(a/2)
+SerD = float(d/2)
+SerC = SerA
+SerB = SerD
+print(f'SerA = {SerA}, SerB = {SerB}, SerC = {SerC}, SerD = {SerD}')
+
+Qa = math.sqrt((Qx - Ax)**2 + (Qy - (Ay+SerA))**2)
+Qb = math.sqrt((Qx - (Bx+SerB))**2 + (By - Qy)**2)
+Qc = math.sqrt((Cx - Qx)**2 + (Qy - (Cy-SerC))**2)
+Qd = math.sqrt((Qx - (Dx-SerD))**2 + (Qy - Dy)**2)
+Sum = int(Qa+ Qb + Qc + Qd)
+print(f'сумма площадей треугольников = {Sum}')
+
+
