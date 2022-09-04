@@ -1,5 +1,6 @@
 import math
 from random import randint
+from re import A
 # print(list(range(10)))
 # print(list(range(10+1)))
 # print(list(range(2,4)))
@@ -91,39 +92,117 @@ from random import randint
 #     print(count)
 
 
-Qx = int(input('координата x преземления дачника: -> '))
-Qy = int(input('координата y преземления дачника: -> '))
+# Qx = int(input('координата x преземления дачника: -> '))
+# Qy = int(input('координата y преземления дачника: -> '))
 
-Ax = 2
-Ay = 2
-Bx = 2
-By = 5
-Cx = 8
-Cy = 5
-Dx = 8
-Dy = 2
+# Ax = 2
+# Ay = 2
+# Bx = 2
+# By = 5
+# Cx = 8
+# Cy = 5
+# Dx = 8
+# Dy = 2
 
-a = math.sqrt((Bx - Ax)**2 + (By - Ay)**2)
-d = math.sqrt((Dx - Ax)**2 + (Dy - Ay)**2)
-c = a
-b = d
-PlPr = int(a*b)
-print()
-print(f'a = {a}, b = {b}, c = {c}, d = {d}')
-print(f'площадь прямоугольника = {PlPr}')
-print()
+# a = math.sqrt((Bx - Ax)**2 + (By - Ay)**2)
+# d = math.sqrt((Dx - Ax)**2 + (Dy - Ay)**2)
+# c = a
+# b = d
+# PlPr = int(a*b)
+# print()
+# print(f'a = {a}, b = {b}, c = {c}, d = {d}')
+# print(f'площадь прямоугольника = {PlPr}')
+# print()
 
-SerA = float(a/2)
-SerD = float(d/2)
-SerC = SerA
-SerB = SerD
-print(f'SerA = {SerA}, SerB = {SerB}, SerC = {SerC}, SerD = {SerD}')
+# SerA = float(a/2)
+# SerD = float(d/2)
+# SerC = SerA
+# SerB = SerD
+# print(f'SerA = {SerA}, SerB = {SerB}, SerC = {SerC}, SerD = {SerD}')
 
-Qa = math.sqrt((Qx - Ax)**2 + (Qy - (Ay+SerA))**2)
-Qb = math.sqrt((Qx - (Bx+SerB))**2 + (By - Qy)**2)
-Qc = math.sqrt((Cx - Qx)**2 + (Qy - (Cy-SerC))**2)
-Qd = math.sqrt((Qx - (Dx-SerD))**2 + (Qy - Dy)**2)
-Sum = int(Qa+ Qb + Qc + Qd)
-print(f'сумма площадей треугольников = {Sum}')
+# Qa = math.sqrt((Qx - Ax)**2 + (Qy - (Ay+SerA))**2)
+# Qb = math.sqrt((Qx - (Bx+SerB))**2 + (By - Qy)**2)
+# Qc = math.sqrt((Cx - Qx)**2 + (Qy - (Cy-SerC))**2)
+# Qd = math.sqrt((Qx - (Dx-SerD))**2 + (Qy - Dy)**2)
+# Sum = int(Qa+ Qb + Qc + Qd)
+# print(f'сумма площадей треугольников = {Sum}')
 
 
+
+                    #       1      Напишите программу, которая принимает на вход два числа и проверяет, 
+                    # является ли одно число квадратом другого.
+                    # Примеры:
+                    # 5, 25 -> да
+                    # 4, 16 -> да
+                    # 25, 5 -> да
+                    # 8,9 -> нет
+
+# a = int(input('Введите число a: '))
+# b = int(input('Введите число b: '))
+
+# if a == b**2 or b == a**2:
+#     print('Yes')
+# else: print('No')
+
+                            #        2      Напишите программу, которая на вход принимает 5 чисел и находит максимальное из них.
+                            # Примеры:
+                            # 1, 4, 8, 7, 5 -> 8
+                            # 78, 55, 36, 90, 2 -> 90
+# a = int(input('Введите a: '))
+# b = int(input('Введите b: '))
+# c = int(input('Введите c: '))
+# d = int(input('Введите d: '))
+# e = int(input('Введите e: '))
+# print(a, b, c, d, e)
+# min = a
+# if b > a: max = b
+# if c > a: max = c
+# if d > a: max = d
+# if e > a: max = e
+# print(max)
+
+                    #вариант с for
+# numbers = [randint(-10, 50) for i in range(10)]
+# print(numbers)
+# max = numbers[0]
+# for i in numbers[1:]:
+#     if i > max:
+#         max = i
+# print(max)
+
+
+i = 1
+a = list(range(1,6)) #a = list(range(5))
+while i <= 5:
+    number = input('Введите {i}-е число + enter: ')
+    a[i-1] = number
+    if i == 1:
+        max = number
+    elif number > max:
+        max = number
+    i += 1
+print(f'max = {max}')
+
+
+
+                        #        3      Напишите программу, которая будет на вход принимать число N и выводить числа от -N до N
+                        # Примеры:
+                        # 5 -> -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+# n = int(input('Введите n: '))
+# start = -n
+# while start < n:
+#     print(start)
+#     start+=1
+
+                        #        4      Напишите программу, которая будет принимать на вход дробь 
+                        # и показывать первую цифру дробной части числа.
+                        # Примеры:
+                        # 6,78 -> 7
+                        # 5 -> нет
+                        # 0,34 -> 3
+# num = float(input('-> '))
+# if num % 10 != 0:
+#    print('No')
+# else: 
+#     res = (num * 10) % 10
+#     print(int(res))
