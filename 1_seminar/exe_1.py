@@ -172,17 +172,17 @@ from re import A
 # print(max)
 
 
-# i = 1
-# a = list(range(1,6)) #a = list(range(5))
-# while i <= 5:
-#     number = input('Введите {i}-е число + enter: ')
-#     a[i-1] = number
-#     if i == 1:
-#         max = number
-#     elif number > max:
-#         max = number
-#     i += 1
-# print(f'max = {max}')
+i = 1
+a = list(range(1,6)) #a = list(range(5))
+while i <= 5:
+    number = input('Введите {i}-е число + enter: ')
+    a[i-1] = number
+    if i == 1:
+        max = number
+    elif number > max:
+        max = number
+    i += 1
+print(f'max = {max}')
 
 
 

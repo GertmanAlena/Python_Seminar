@@ -1,14 +1,15 @@
 
+from random import randint
                                                 # Задача 1
 
 # Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 
-a = int(input("Введите день недели: "))
-if a==6 or a==7:
-    print("Спим")
-elif a>=1 and a <=5:
-    print("Go трудиться")
-else: print("не понтно что делать!")
+# a = int(input("Введите день недели: "))
+# if a==6 or a==7:
+#     print("Спим")
+# elif a>=1 and a <=5:
+#     print("Go трудиться")
+# else: print("не понтно что делать!")
 
 
                                                 # Задача 2
@@ -32,6 +33,17 @@ else: print("не понтно что делать!")
 # y = int(input(' y = '))
 # z = int(input(' z = '))
 
+# i = 0
+# xyz = list(range(1,4))
+# while i < 3:
+#     num = randint(0,1)
+#     xyz[i] = num
+#     i += 1
+# print(xyz)
+
+# x = xyz[0]
+# y = xyz[1]
+# z = xyz[2]
 # left = not(x or y or z)
 # right = (not x) and (not y) and (not z)
 # if left == right:
@@ -115,4 +127,3 @@ else: print("не понтно что делать!")
 #     fib2 = fib
 #     i+=1
 # print(fib)
-
