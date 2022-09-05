@@ -1,5 +1,6 @@
 
 from random import randint
+import string
                                                 # Задача 1
 
 # Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
@@ -127,3 +128,24 @@ from random import randint
 #     fib2 = fib
 #     i+=1
 # print(fib)
+
+fib1 = 1
+fib2 = 1
+
+i = 0
+
+def inputFloat(prompt=None):
+    while True:
+        n = input(prompt)
+        try:
+            return int(n)
+        except ValueError:
+            print('Ошибка. Ожидалось вещественное число.')
+f = inputFloat('Введите число: ')
+print('Вы ввели', f)
+while i < f-2:
+    fib = fib1 + fib2
+    fib1 = fib2
+    fib2 = fib
+    i+=1
+print(fib)
