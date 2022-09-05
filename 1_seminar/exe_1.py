@@ -227,27 +227,27 @@ from re import A
 # Найдите самую большую цифру в числе. 
 # Для решения используйте цикл while и арифметические операции.
 
-min = int(input('Введите min: -> '))                                    # ***********  ФУНКЦИИ!!! *****
-max = int(input('Введите max: -> '))
-amount = int(input('Введите сколько должно быть чисел: -> '))
+# min = int(input('Введите min: -> '))                                    # ***********  ФУНКЦИИ!!! *****
+# max = int(input('Введите max: -> '))
+# amount = int(input('Введите сколько должно быть чисел: -> '))
 
 
-def rand(a, b, c):
-    numbers = [randint(min, max) for i in range(amount)]
-    return numbers
-myArray = rand(min, max, amount)
-print(myArray)
+# def rand(a, b, c):
+#     numbers = [randint(min, max) for i in range(amount)]
+#     return numbers
+# myArray = rand(min, max, amount)
+# print(myArray)
 
-def max_number(myArray):
-    max = myArray[0]
-    i = 1
-    for i in myArray:
-        if i > max:
-            max = i
+# def max_number(myArray):
+#     max = myArray[0]
+#     i = 1
+#     for i in myArray:
+#         if i > max:
+#             max = i
          
-    return max
-max = int(max_number(myArray))
-print(max)
+#     return max
+# max = int(max_number(myArray))
+# print(max)
 
 # max = 0
 # for num in a:
@@ -264,3 +264,16 @@ print(max)
         
 #     if i == len(num): flag = False
 # print(max)
+
+
+                                        # выручка и издержки
+
+prib = float(input('Введите прибыль: -> '))
+ub = float(input('Введите убытки: -> '))
+
+if prib > ub:
+    print('прибыльное дело!')
+    rent = (ub/prib)*1
+    print(f'рентабильность составляет {rent}%')
+else: print('Закрывайся!!')
+
