@@ -227,7 +227,7 @@ from re import A
 # Найдите самую большую цифру в числе. 
 # Для решения используйте цикл while и арифметические операции.
 
-min = int(input('Введите min: -> '))
+min = int(input('Введите min: -> '))                                    # ***********  ФУНКЦИИ!!! *****
 max = int(input('Введите max: -> '))
 amount = int(input('Введите сколько должно быть чисел: -> '))
 
@@ -238,6 +238,16 @@ def rand(a, b, c):
 myArray = rand(min, max, amount)
 print(myArray)
 
+def max_number(myArray):
+    max = myArray[0]
+    i = 1
+    for i in myArray:
+        if i > max:
+            max = i
+         
+    return max
+max = int(max_number(myArray))
+print(max)
 
 # max = 0
 # for num in a:
