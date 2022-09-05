@@ -134,7 +134,7 @@ fib2 = 1
 
 i = 0
 
-def inputFloat(prompt=None):
+def inputFloat(prompt=None):  # ПРОВЕРКА НА INT
     while True:
         n = input(prompt)
         try:

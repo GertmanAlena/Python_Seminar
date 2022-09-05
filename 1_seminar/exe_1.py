@@ -227,12 +227,23 @@ from re import A
 # Найдите самую большую цифру в числе. 
 # Для решения используйте цикл while и арифметические операции.
 
-a = input()
-max = 0
-for num in a:
-    if int(num) > max:
-        max = int(num)
-print(max)
+min = int(input('Введите min: -> '))
+max = int(input('Введите max: -> '))
+amount = int(input('Введите сколько должно быть чисел: -> '))
+
+
+def rand(a, b, c):
+    numbers = [randint(min, max) for i in range(amount)]
+    return numbers
+myArray = rand(min, max, amount)
+print(myArray)
+
+
+# max = 0
+# for num in a:
+#     if int(num) > max:
+#         max = int(num)
+# print(max)
 
 # i = 0
 # flag = True
