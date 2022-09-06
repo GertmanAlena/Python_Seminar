@@ -1,4 +1,6 @@
 
+from ast import Del
+from os import remove
 from random import randint
 import string
                                                 # Задача 1
@@ -129,23 +131,24 @@ import string
 #     i+=1
 # print(fib)
 
-fib1 = 1
-fib2 = 1
+# fib1 = 1
+# fib2 = 1
 
-i = 0
+# i = 0
 
-def inputFloat(prompt=None):  # ПРОВЕРКА НА INT
-    while True:
-        n = input(prompt)
-        try:
-            return int(n)
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-f = inputFloat('Введите число: ')
-print('Вы ввели', f)
-while i < f-2:
-    fib = fib1 + fib2
-    fib1 = fib2
-    fib2 = fib
-    i+=1
-print(fib)
+# def inputFloat(prompt=None):  # ПРОВЕРКА НА INT
+#     while True:
+#         n = input(prompt)
+#         try:
+#             return int(n)
+#         except ValueError:
+#             print('Ошибка. Ожидалось вещественное число.')
+# f = inputFloat('Введите число: ')
+# print('Вы ввели', f)
+# while i < f-2:
+#     fib = fib1 + fib2
+#     fib1 = fib2
+#     fib2 = fib
+#     i+=1
+# print(fib)
+

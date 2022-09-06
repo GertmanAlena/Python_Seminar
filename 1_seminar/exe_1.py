@@ -202,12 +202,13 @@ from re import A
                         # 5 -> нет
                         # 0,34 -> 3
 # num = float(input('-> '))
-# if num % 10 != 0:
-#    print('No')
-# else: 
-#     res = (num * 10) % 10
-#     print(int(res))
+# if int(num) == num:
+#     print('No')
+# else:
+#     res = (int(num * 10) % 10)
+#     print(res)
 
+ 
                                                         # ДОП *********************** 1
 # Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. 
 # Например, пользователь ввёл число 3. Считаем 3 + 33 + 333 = 369.
@@ -266,14 +267,19 @@ from re import A
 # print(max)
 
 
-                                        # выручка и издержки
+# num = '123456789'
+# print(num[2]+ ' ' + num[4])
+# print(num[4:7])
+# print()
+# print(num[-7]+ ' ' + num[-5])
+# print(num[-5:-2])
 
-prib = float(input('Введите прибыль: -> '))
-ub = float(input('Введите убытки: -> '))
 
-if prib > ub:
-    print('прибыльное дело!')
-    rent = (ub/prib)*1
-    print(f'рентабильность составляет {rent}%')
-else: print('Закрывайся!!')
+# text = 'AaBbCcDd'
+# print('text[::2] ->', text[::2], end='\n\n')	
+# print('text[1::2] ->', text[1::2], end='\n\n')	
 
+# text = '0123456789'
+# print(text[1:5]+ ' ' + text[6:9],'\n')
+# print(text[4:5])
+                                       
