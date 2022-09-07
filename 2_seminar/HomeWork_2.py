@@ -101,14 +101,6 @@ def PolindromTwo(pol_num1):
     return pol_num2
 
 def check_palindrome(pol_num1, pol_num2):
-    
-    # if pol_num1 == pol_num2:
-    #     print(f'число {pol_num1} полиндром')
-   
-    # elif len(pol_num1) == len(pol_num2):
-    #     c = [x+y for x, y in zip(pol_num1, pol_num2)]
-            
-    #     print(c)
 
     if pol_num1 == pol_num2:
         print(f'число {pol_num1} полиндром')
@@ -118,11 +110,10 @@ def check_palindrome(pol_num1, pol_num2):
             if len(pol_num1) == len(pol_num2):
                 while pol_num1 != pol_num2: 
                     c = [x+y for x, y in zip(pol_num1, pol_num2)]
-                    print(f'число {c} теперь полиндром')
+                    print(f'теперь число {c}  полиндром')
                     return c
         except ValueError:
             print('Ошибка.')
-
 
 pol_num1 = Polindrom(str(number))
 print('первое число ->', pol_num1)
