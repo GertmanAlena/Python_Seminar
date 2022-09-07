@@ -80,49 +80,86 @@ os.system('CLS')
 # Это происходит до тех пор, пока не будет найден палиндром.
 # Напишите такую программу, которая найдет палиндром введенного пользователем числа.  
 
-def inputInt(prompt=None):  # ПРОВЕРКА НА INT
-    while True:
-        p = input(prompt)
-        try:
-            return int(p)
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-number = inputInt('Введите число: ')
-print('Вы ввели', number)
+# def inputInt(prompt=None):  # ПРОВЕРКА НА INT
+#     while True:
+#         p = input(prompt)
+#         try:
+#             return int(p)
+#         except ValueError:
+#             print('Ошибка. Ожидалось вещественное число.')
+# number = inputInt('Введите число: ')
+# print('Вы ввели', number)
 
-def Polindrom(number):
-    pol_num1 = []
-    for i in number:
-        pol_num1.append(int(i))
-    return pol_num1
+# def Polindrom(number):
+#     pol_num1 = []
+#     for i in number:
+#         pol_num1.append(int(i))
+#     return pol_num1
     
-def PolindromTwo(pol_num1):
-    pol_num2 = pol_num1[len(pol_num1)-1::-1] #строка первая наоборот записана
-    return pol_num2
+# def PolindromTwo(pol_num1):
+#     pol_num2 = pol_num1[len(pol_num1)-1::-1] #строка первая наоборот записана
+#     return pol_num2
 
-def check_palindrome(pol_num1, pol_num2):
+# def check_palindrome(pol_num1, pol_num2):
 
-    if pol_num1 == pol_num2:
-        print(f'число {pol_num1} полиндром')
+#     if pol_num1 == pol_num2:
+#         print(f'число {pol_num1} полиндром')
    
-    else:
-        try:
-            if len(pol_num1) == len(pol_num2):
-                while pol_num1 != pol_num2: 
-                    c = [x+y for x, y in zip(pol_num1, pol_num2)]
-                    print(f'теперь число {c}  полиндром')
-                    return c
-        except ValueError:
-            print('Ошибка.')
+#     else:
+#         try:
+#             if len(pol_num1) == len(pol_num2):
+#                 while pol_num1 != pol_num2: 
+#                     c = [x+y for x, y in zip(pol_num1, pol_num2)]
+#                     print(f'теперь число {c}  полиндром')
+#                     return c
+#         except ValueError:
+#             print('Ошибка.')
 
-pol_num1 = Polindrom(str(number))
-print('первое число ->', pol_num1)
-pol_num2 = PolindromTwo(pol_num1)
-print('второе число ->', pol_num2)
-check_palindrome(pol_num1, pol_num2)
+# pol_num1 = Polindrom(str(number))
+# print('первое число ->', pol_num1)
+# pol_num2 = PolindromTwo(pol_num1)
+# print('второе число ->', pol_num2)
+# check_palindrome(pol_num1, pol_num2)
                                                 # Задача 4
 # Реализуйте выдачу случайного числа
 # не использовать random.randint и вообще библиотеку random
 # Можете использовать xor, биты, библиотеку time или datetime (миллисекунды или наносекунды) - 
 # для задания случайности
-# Учтите, что есть диапазон: от(минимальное) и до (максимальное)                                            
+# Учтите, что есть диапазон: от(минимальное) и до (максимальное)           
+# 
+# # 
+# # 
+
+
+
+                                        # второй вариант ПОЛИНДРОМА!!!!!!!!!!!!!!!!!!
+def polindrome(number):
+    number2 = 0
+    while number:
+        z = number % 10
+        number2 = number2*10 + z
+        number //= 10
+    return int(number2)
+
+try:
+    def inputInt(prompt=None):  # ПРОВЕРКА НА INT
+        while True:
+            p = input(prompt)
+            try:
+                return int(p)
+            except ValueError:
+                print('Ошибка. Ожидалось вещественное число.')
+    number = inputInt('Введите число: ')
+    print('Вы ввели', number)  
+    number2 = polindrome(number)
+    print(number2)
+    if number == number2:
+      print(f'число {number} полиндром')  
+    else:
+        while number != number2:
+            number = number + number2
+            number2 = polindrome(number)
+        else: print(f' полинромом является {number}')
+
+except ValueError:
+    print('Ошибка.')
