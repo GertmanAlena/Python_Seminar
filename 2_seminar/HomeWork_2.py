@@ -132,8 +132,8 @@ os.system('CLS')
 from datetime import datetime
 
 def gen_rand():
-    current_datetime = datetime.now()
-    print(current_datetime.microsecond%10)
+    num = datetime.now()
+    print(num.microsecond%10)
 gen_rand()
 
 #                                         # второй вариант ПОЛИНДРОМА!!!!!!!!!!!!!!!!!!
