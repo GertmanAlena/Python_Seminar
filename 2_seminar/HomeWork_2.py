@@ -1,5 +1,6 @@
 
 from ast import Compare, Del
+from datetime import datetime
 import numbers
 from os import remove
 import os
@@ -80,46 +81,46 @@ os.system('CLS')
 # Это происходит до тех пор, пока не будет найден палиндром.
 # Напишите такую программу, которая найдет палиндром введенного пользователем числа.  
 
-def pol(number):
-    number2 = 0
-    while number:
-        z = number % 10
-        number2 = number2*10 + z
-        number //= 10
-    return int(number2)
+# def pol(number):
+#     number2 = 0
+#     while number:
+#         z = number % 10
+#         number2 = number2*10 + z
+#         number //= 10
+#     return int(number2)
 
-def Polindrom(number):
-    number2 = number[len(number)-1::-1] #строка первая наоборот записана
-    return number2
+# def Polindrom(number):
+#     number2 = number[len(number)-1::-1] #строка первая наоборот записана
+#     return number2
    
 
-def check_palindrome(pol_num1, pol_num2):
+# def check_palindrome(pol_num1, pol_num2):
 
-    if pol_num1 == pol_num2:
-        print(f'{pol_num1}   --  полиндром')
+#     if pol_num1 == pol_num2:
+#         print(f'{pol_num1}   --  полиндром')
    
-    else:
-        print(f'{pol_num1}   --  НЕ полиндром')
-        try:
+#     else:
+#         print(f'{pol_num1}   --  НЕ полиндром')
+#         try:
             
-            while pol_num1 != pol_num2: 
-                pol_num1 = int(pol_num1)
-                pol_num2 = int(pol_num2)
-                pol_num1 = pol_num1 + pol_num2
-                pol_num2 = pol(pol_num1)
-                check_palindrome(pol_num1, pol_num2)
-                print(f'теперь получился {pol_num2}  полиндром')
-                return pol_num2
-        except ValueError:
-            print('Ошибка.')
+#             while pol_num1 != pol_num2: 
+#                 pol_num1 = int(pol_num1)
+#                 pol_num2 = int(pol_num2)
+#                 pol_num1 = pol_num1 + pol_num2
+#                 pol_num2 = pol(pol_num1)
+#                 check_palindrome(pol_num1, pol_num2)
+#                 print(f'теперь получился {pol_num2}  полиндром')
+#                 return pol_num2
+#         except ValueError:
+#             print('Ошибка.')
 
-number = input('Введите число: ')
-print('Вы ввели -> ', number)
+# number = input('Введите число: ')
+# print('Вы ввели -> ', number)
 
-number2 = Polindrom(number)
-print('перевёртыш ->', number2)
+# number2 = Polindrom(number)
+# print('перевёртыш ->', number2)
 
-check_palindrome(number, number2)
+# check_palindrome(number, number2)
 
                                                 # Задача 4
 # Реализуйте выдачу случайного числа
@@ -128,9 +129,12 @@ check_palindrome(number, number2)
 # для задания случайности
 # Учтите, что есть диапазон: от(минимальное) и до (максимальное)           
 # 
+from datetime import datetime
 
-
-
+def gen_rand():
+    current_datetime = datetime.now()
+    print(current_datetime.microsecond%10)
+gen_rand()
 
 #                                         # второй вариант ПОЛИНДРОМА!!!!!!!!!!!!!!!!!!
 # def polindrome(number):
