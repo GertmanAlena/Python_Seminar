@@ -82,8 +82,4 @@ from turtle import clear
 # print(max, end= ' ')
 # print(f'количество чисел 10% = {count}')
 
-number = input('-> ')
-count = 0
-for i in number:
-    count += 1
-print(count)
+
