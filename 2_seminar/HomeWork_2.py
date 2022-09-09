@@ -129,12 +129,12 @@ os.system('CLS')
 # для задания случайности
 # Учтите, что есть диапазон: от(минимальное) и до (максимальное)           
 # 
-from datetime import datetime
+# from datetime import datetime
 
-def gen_rand():
-    num = datetime.now()
-    print(num.microsecond%10)
-gen_rand()
+# def gen_rand():
+#     num = datetime.now()
+#     print(num.microsecond%10)
+# gen_rand()
 
 #                                         # второй вариант ПОЛИНДРОМА!!!!!!!!!!!!!!!!!!
 # def polindrome(number):
