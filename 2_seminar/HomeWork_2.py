@@ -1,4 +1,3 @@
-
 from ast import Compare, Del
 from datetime import datetime
 import numbers
@@ -15,34 +14,28 @@ os.system('CLS')
 # 67.82 -> 23
 # 0.56 -> 11
 
-# def inputFloat(prompt=None):  # ПРОВЕРКА НА INT
-#     while True:
-#         p = input(prompt)
-#         try:
-#             return int(p)
-#         except ValueError:
-#             print('Ошибка. Ожидалось вещественное число.')
-# number = inputFloat('Введите дробное число: ')
-# print('Вы ввели', number, end= ' ')
+number = input('Введите дробное число: ')
+print('Вы ввели', number, end= ' ')
 
-# separation = number.split('.')
-# num1 = int(separation[0])
-# num2 = int(separation[1])
+separation = number.split('.')
+num = separation[0] + separation[1]
     
-# print(f'num1 [', num1, ']', 'num2 [', num2, ']')
+print('число = ', num)
 
-# def sum_num(num):
-#     sum = 0
-#     if int(num) < 0: num *= -1      
-#     while int(num) > 0:
-#         if num % 10 != 0:
-#             a = num%10
-#             sum += a
-#             num = int(num/10)
-#     else: sum = sum + num
-#     return sum
+def sum_num(num):
+    sum = 0
+    if int(num) < 0: num *= -1      
+    while int(num) > 0:
+        if num % 10 != 0:
+            a = num%10
+            sum += a
+            num = int(num/10)
+    else: sum = sum + num
+    return sum
 
-# print(sum_num(num1) + sum_num(num2))
+print(sum_num(int(num)))
+
+
 
 
                                                 # Задача 2
@@ -129,16 +122,16 @@ os.system('CLS')
 # для задания случайности
 # Учтите, что есть диапазон: от(минимальное) и до (максимальное)           
 # 
-from datetime import datetime
+# from datetime import datetime
 
-def gen_rand():
+# def gen_rand():
   
-    num = datetime.now()
-    if num.microsecond%10 > 2 and num.microsecond%10 < 10:
-        print(num.microsecond%10)
-    else:
-        print("число вне диапазона, запустите снова")    
-gen_rand()
+#     num = datetime.now()
+#     if num.microsecond%10 > 2 and num.microsecond%10 < 10:
+#         print(num.microsecond%10)
+#     else:
+#         print("число вне диапазона, запустите снова")    
+# gen_rand()
 
 #                                         # второй вариант ПОЛИНДРОМА!!!!!!!!!!!!!!!!!!
 # def polindrome(number):
