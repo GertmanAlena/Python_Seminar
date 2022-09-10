@@ -12,6 +12,3 @@
 #     ms = datetime.datetime.today().microsecond / (10 ** 6)
 #     #print(f'{ms=}')
 #     return _min + math.ceil(d * ms)
-import random_numb
-numbers = random_numb.Random_Number()
-print(numbers)
