@@ -113,3 +113,53 @@ os.system('CLS')
 # для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] Негафибоначчи
 # Решение оформлять в виде функций
 # По возможности добавляйте docstring
+
+Fibonacci_Positive = []
+def Fibonacci_Pos(num):
+    '''функция Фибоначчи с положительными числами'''
+    fib1 = 0
+    fib2 = 1
+    fib3 = -1
+    for i in range(num):
+        if i == 0: Fibonacci_Positive.append(fib1)
+        if i == 1: Fibonacci_Positive.append(fib2)
+       # 
+        else:
+            
+            Fibonacci_Positive.append(fib1+fib2)
+            time = fib2
+            fib2 = fib1+fib2
+            fib1 = time
+          
+    return 
+   
+number = Fibonacci_Pos(int(input('-> ')))
+print(Fibonacci_Positive)
+
+Fibonacci_Negative = []
+def Fibonacci_Neg(num):
+    '''функция Фибоначчи с отрицательными числами'''
+    fib1 = 0
+    fib2 = 1
+    fib3 = -1
+    for i in range(num):
+        if i == 0: Fibonacci_Negative.append(fib1)
+        if i == 1: Fibonacci_Negative.append(fib2)
+        if i == 2: Fibonacci_Negative.append(fib3)
+        elif fib3<0:
+            
+            Fibonacci_Negative.append((-fib2+fib3)*-1)
+
+            time = fib3
+            fib3 = (-fib2+fib3)*-1
+            fib2 = time
+        elif fib2<0:
+            
+            Fibonacci_Negative.append(fib2+(-fib3))
+
+            time = fib3
+            fib3 = fib2+(-fib3)
+            fib2 = time  
+    return 
+number = Fibonacci_Neg(int(input('-> ')))
+print(Fibonacci_Negative)
