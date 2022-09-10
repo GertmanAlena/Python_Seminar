@@ -7,9 +7,10 @@ os.system('CLS')
 # 1- Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 # Пример:
         # [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
-# import random_numb
-# numbers = random_numb.Random_Number()
-# print(numbers)
+import random_numb
+numbers = random_numb.Random_Number()
+print(numbers)
+
 # def Summa_Numbers(numbers2):
 #     sum: int = 0
 #     for i in numbers2:
@@ -21,49 +22,35 @@ os.system('CLS')
 
 # print(Summa_Numbers(numbers2))
 
+# '''второй вариант решения задачи'''
+# print(numbers[1::2])
+# print (sum(numbers[1::2]))
 
 # 2-Напишите программу, которая найдёт произведение пар чисел списка. 
 # Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 # Пример: [2, 3, 4, 5, 6] => [12, 15, 16];    [2, 3, 5, 6] => [12, 15]
 
-
-import random_numb
-First_List = random_numb.Random_Number()
-'''импортировала из вайла рандомно создание списка'''
-print('First_List ', First_List)
-
-def Proizved_Alem(First_List): 
-    '''функция умножения элементов'''
-    if len(First_List) % 2 == 0:
-        size = len(First_List)/2
-    else:
-        size = int((len(First_List)/2)+0.5)
-        
-    Res_List = []
-    i=0
-    while i <= size-1:
-        Res_List.append(First_List[i]*First_List[(i+1)*-1])
-        i+=1
-    # print('Res_List   ', Res_List)
-    return Res_List
-
-print('Res_List   ', Proizved_Alem(First_List))
-
-# First_List = [1, 2, 3, 4, 5, 6, 7]
+# import random_numb
+# First_List = random_numb.Random_Number()
+# '''импортировала из вайла рандомно создание списка'''
 # print('First_List ', First_List)
 
-# if len(First_List) % 2 == 0:
-#     size = len(First_List)/2
-# else:
-#     size = round(len(First_List)/2)
+# def Proizved_Alem(First_List): 
+#     '''функция умножения элементов'''
+#     if len(First_List) % 2 == 0:
+#         size = len(First_List)/2
+#     else:
+#         size = int((len(First_List)/2)+0.5)
+        
+#     Res_List = []
+#     i=0
+#     while i <= size-1:
+#         Res_List.append(First_List[i]*First_List[(i+1)*-1])
+#         i+=1
+#     # print('Res_List   ', Res_List)
+#     return Res_List
 
-# Res_List = []
-# i=0
-# while i <= size-1:
-#     Res_List.append(First_List[i]*First_List[(i+1)*-1])
-#     i+=1
-# print('Res_List   ', Res_List)
-
+# print('Res_List   ', Proizved_Alem(First_List))
 
 # 3-Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
 # Пример:
