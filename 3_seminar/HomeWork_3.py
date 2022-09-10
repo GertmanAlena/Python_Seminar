@@ -53,26 +53,26 @@ os.system('CLS')
 
 # print('Res_List   ', Proizved_Alem(First_List))
 
-# 3-Задайте список из вещественных чисел. 
-# Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
-# Пример:
+            # 3-Задайте список из вещественных чисел. 
+            # Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
+            # Пример:
 
 # [1.1, 1.2, 3.1, 5.17, 10.02] => 0.18 или 18
 # [4.07, 5.1, 8.2444, 6.98] - 0.91 или 91
 
-num = [4.07, 5.1, 8.2444, 6.98]
-print('num -> ', num)
-num2 = []
-for i in num:
-    i =("{:.2f}".format(i))
-    num2.append(i)
-print('num2 -> ',num2)
-num3 = []
-for i in num:
-    num3.append(i)
-print('num3 -> ',num3)
+# num = [4.07, 5.1, 8.2444, 6.98]
+# print('num -> ', num)
+# num2 = []
+# for i in num:
+#     i =("{:.2f}".format(i))
+#     num2.append(i)
+# print('num2 -> ',num2)
+# num3 = []
+# for i in num:
+#     num3.append(i)
+# print('num3 -> ',num3)
 
-print(round(max(num3)-min(num3),2))
+# print(round(max(num3)-min(num3),2))
 
 
 # 4- Напишите программу, которая будет преобразовывать десятичное число в двоичное. 
@@ -82,6 +82,22 @@ print(round(max(num3)-min(num3),2))
 # 45 -> 101101
 # 3 -> 11
 # 2 -> 10
+
+def Binary(num):
+    
+    if num < 2: return num
+    return num%2, Binary(num//2)
+
+num2 = Binary(int(input('-> ')))
+print(num2[::-1])
+
+# def Binary(num):
+    
+#     if num < 2: return num
+#     return num%2, Binary(num//2)
+
+# num2 = Binary(int(input('-> '))) 
+# print(num2[::-1])
 
 
 # 5-Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
