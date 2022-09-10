@@ -1,27 +1,19 @@
 import os
-from random import randint
 os.system('CLS')
+
 
 # 1- Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 # Пример:
         # [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
-
-min = int(input('min ->: '))
-max = int(input('max ->: '))
-size = int(input('size ->: '))
-
-def Random_Number(*params):
-    rand_num = [randint(min, max) for i in range(size)]
-    return rand_num
-
+import random_numb
+numbers = random_numb.Random_Number()
+print(numbers)
 def Summa_Numbers(numbers2):
     sum: int = 0
     for i in numbers2:
         sum = sum + i
     return sum
 
-numbers = (Random_Number(min, max, size))
-print(numbers)
 numbers2 = numbers[1::2]
 print(numbers2)
 
