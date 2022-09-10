@@ -83,21 +83,28 @@ os.system('CLS')
 # 3 -> 11
 # 2 -> 10
 
-def Binary(num):
-    
-    if num < 2: return num
-    return num%2, Binary(num//2)
-
-num2 = Binary(int(input('-> ')))
-print(num2[::-1])
-
 # def Binary(num):
-    
-#     if num < 2: return num
-#     return num%2, Binary(num//2)
+'''без рекурсии'''
+#     bin = []
+#     while num > 0:
+#         bin.append(num%2)
+#         num//=2
+#     return bin
 
-# num2 = Binary(int(input('-> '))) 
-# print(num2[::-1])
+# bin = Binary(int(input('-> '))) 
+# print(bin[::-1])   
+
+# bin = []
+'''рекурсия'''
+# def Binary(num):
+#     if num == 0:
+#         return 1
+#     else:
+#         bin.append(num%2)
+#         return Binary(num//2)
+    
+# num = Binary(int(input('-> '))) 
+# print(bin[::-1])  
 
 
 # 5-Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
