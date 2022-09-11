@@ -50,51 +50,6 @@ os.system('CLS')
 #     print(d)
 # number = number(int(input('-> ')))
 
-
-
-
-def Fibonacci_Pos(num):
-    '''
-    функция последовательности Фибоначчи с положительными числами
-    '''
-    Fibonacci_Positive = []
-    fib1 = 0
-    fib2 = 1
-    for i in range(num+1):
-        if i == 0: Fibonacci_Positive.insert(i,fib1) 
-        elif i == 1: Fibonacci_Positive.insert(i,fib2)
-        else:
-            Fibonacci_Positive.insert(i,fib1+fib2)
-            time = fib2
-            fib2 = fib1+fib2
-            fib1 = time
-    return Fibonacci_Positive
-Fibonacci_Positive = Fibonacci_Pos(int(input('-> ')))
-print(Fibonacci_Positive)
-
-def Fibonacci_Neg(num):
-    '''
-    функция последовательности Фибоначчи с отрицательными числами
-    '''
-    Fibonacci_Negative = []
-    fib1 = 1
-    fib2 = -1
-    for i in range(num):
-        if i == 0: Fibonacci_Negative.insert(i,fib1)
-        elif i == 1: Fibonacci_Negative.insert(i,fib2)
-        else:
-            Fibonacci_Negative.insert(i,fib1-fib2)
-            time = fib2
-            fib2 = fib1-fib2
-            fib1 = time
-    return Fibonacci_Negative
-Fibonacci_Negative = Fibonacci_Neg(int(input('-> ')))
-print(Fibonacci_Negative)
-
-Oll_Fib = str(Fibonacci_Negative[::-1]+Fibonacci_Positive)
-print(Oll_Fib)
-
-
 '''
 Найти наиболее часто встречающийся элемент в массиве целых чисел.
 '''
