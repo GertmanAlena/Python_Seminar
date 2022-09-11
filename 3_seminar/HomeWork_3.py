@@ -60,23 +60,30 @@ os.system('CLS')
 # [1.1, 1.2, 3.1, 5.17, 10.02] => 0.18 или 18
 # [4.07, 5.1, 8.2444, 6.98] - 0.91 или 91
 
-# num = [4.07, 5.1, 8.2444, 6.98]
+# num = [4.07, 5.1, 8.2444, 6.98] 
 # print('num -> ', num)
 # num2 = []
 # for i in num:
+#     '''
+#     округляем дробную часть
+#     '''
 #     i =("{:.2f}".format(i))
 #     num2.append(i)
 # print('num2 -> ',num2)
 # num3 = []
-# for i in num:
-#     num3.append(i)
+# for i in num2:
+#     '''
+#     берём часть после точки через split
+#     '''
+#     num3.append(int(str(i).split('.')[1]))
+#     # num3.append(i-int(i))
 # print('num3 -> ',num3)
 
 # print(round(max(num3)-min(num3),2))
 
 
-# 4- Напишите программу, которая будет преобразовывать десятичное число в двоичное. 
-# Подумайте, как это можно решить с помощью рекурсии.
+            # 4- Напишите программу, которая будет преобразовывать десятичное число в двоичное. 
+            # Подумайте, как это можно решить с помощью рекурсии.
 
 # Пример:
 # 45 -> 101101
@@ -84,7 +91,7 @@ os.system('CLS')
 # 2 -> 10
 
 # def Binary(num):
-'''без рекурсии'''
+    # '''без рекурсии'''
 #     bin = []
 #     while num > 0:
 #         bin.append(num%2)
@@ -95,8 +102,8 @@ os.system('CLS')
 # print(bin[::-1])   
 
 # bin = []
-'''рекурсия'''
 # def Binary(num):
+#     '''рекурсия'''
 #     if num == 0:
 #         return 1
 #     else:
@@ -114,47 +121,47 @@ os.system('CLS')
 # Решение оформлять в виде функций
 # По возможности добавляйте docstring
 '''функция последовательности Фибоначчи с положительными числами'''
-Fibonacci_Positive = []
-def Fibonacci_Pos(num):
+# Fibonacci_Positive = []
+# def Fibonacci_Pos(num):
     
-    fib1 = 0
-    fib2 = 1
+#     fib1 = 0
+#     fib2 = 1
    
-    for i in range(num):
-        if i == 0: Fibonacci_Positive.append(fib1)
-        if i == 1: Fibonacci_Positive.append(fib2)
-       # 
-        else:
+#     for i in range(num):
+#         if i == 0: Fibonacci_Positive.append(fib1)
+#         if i == 1: Fibonacci_Positive.append(fib2)
+#        # 
+#         else:
             
-            Fibonacci_Positive.append(fib1+fib2)
-            time = fib2
-            fib2 = fib1+fib2
-            fib1 = time
+#             Fibonacci_Positive.append(fib1+fib2)
+#             time = fib2
+#             fib2 = fib1+fib2
+#             fib1 = time
           
-    return 
+#     return 
    
-number = Fibonacci_Pos(int(input('-> ')))
+# number = Fibonacci_Pos(int(input('-> ')))
 
-'''функция последовательности Фибоначчи с отрицательными числами'''
-Fibonacci_Negative = []
-def Fibonacci_Neg(num):
+# '''функция последовательности Фибоначчи с отрицательными числами'''
+# Fibonacci_Negative = []
+# def Fibonacci_Neg(num):
     
-    fib1 = 0
-    fib2 = 1
+#     fib1 = 0
+#     fib2 = 1
    
-    for i in range(num+1):
-        if i == 0: Fibonacci_Negative.append(fib1)
-        elif i == 1: Fibonacci_Negative.append(fib2)
-        else:
-            Fibonacci_Negative.append(fib1-fib2)
-            time = fib2
-            fib2 = fib1-fib2
-            fib1 = time
-    return 
-number = Fibonacci_Neg(int(input('-> ')))
-Fibonacci_Negative2 = Fibonacci_Negative[::-1]
+#     for i in range(num+1):
+#         if i == 0: Fibonacci_Negative.append(fib1)
+#         elif i == 1: Fibonacci_Negative.append(fib2)
+#         else:
+#             Fibonacci_Negative.append(fib1-fib2)
+#             time = fib2
+#             fib2 = fib1-fib2
+#             fib1 = time
+#     return 
+# number = Fibonacci_Neg(int(input('-> ')))
+# Fibonacci_Negative2 = Fibonacci_Negative[::-1]
 
-os.system('CLS')
-Oll_Fib = str(Fibonacci_Negative2+Fibonacci_Positive)
-print(Oll_Fib)
+# os.system('CLS')
+# Oll_Fib = str(Fibonacci_Negative2+Fibonacci_Positive)
+# print(Oll_Fib)
 
