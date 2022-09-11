@@ -109,17 +109,17 @@ Min_Max(Integer_Numbers)
 # bin = Binary(int(input('-> '))) 
 # print(bin[::-1])   
 
-bin = []
-def Binary(num):
-    '''рекурсия'''
-    if num == 0:
-        return 1
-    else:
-        bin.append(num%2)
-        return Binary(num//2)
+# bin = []
+# def Binary(num):
+#     '''рекурсия'''
+#     if num == 0:
+#         return 1
+#     else:
+#         bin.append(num%2)
+#         return Binary(num//2)
     
-num = Binary(int(input('-> '))) 
-print(bin[::-1])  
+# num = Binary(int(input('-> '))) 
+# print(bin[::-1])  
 
 
 # 5-Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
@@ -128,48 +128,44 @@ print(bin[::-1])
 # для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] Негафибоначчи
 # Решение оформлять в виде функций
 # По возможности добавляйте docstring
-'''функция последовательности Фибоначчи с положительными числами'''
-# Fibonacci_Positive = []
-# def Fibonacci_Pos(num):
-    
-#     fib1 = 0
-#     fib2 = 1
-   
-#     for i in range(num):
-#         if i == 0: Fibonacci_Positive.append(fib1)
-#         if i == 1: Fibonacci_Positive.append(fib2)
-#        # 
-#         else:
-            
-#             Fibonacci_Positive.append(fib1+fib2)
-#             time = fib2
-#             fib2 = fib1+fib2
-#             fib1 = time
-          
-#     return 
-   
-# number = Fibonacci_Pos(int(input('-> ')))
 
-# '''функция последовательности Фибоначчи с отрицательными числами'''
-# Fibonacci_Negative = []
-# def Fibonacci_Neg(num):
-    
-#     fib1 = 0
-#     fib2 = 1
-   
-#     for i in range(num+1):
-#         if i == 0: Fibonacci_Negative.append(fib1)
-#         elif i == 1: Fibonacci_Negative.append(fib2)
-#         else:
-#             Fibonacci_Negative.append(fib1-fib2)
-#             time = fib2
-#             fib2 = fib1-fib2
-#             fib1 = time
-#     return 
-# number = Fibonacci_Neg(int(input('-> ')))
-# Fibonacci_Negative2 = Fibonacci_Negative[::-1]
+def Fibonacci_Pos(num):
+    '''
+    функция последовательности Фибоначчи с положительными числами
+    '''
+    Fibonacci_Positive = []
+    fib1 = 0
+    fib2 = 1
+    for i in range(num+1):
+        if i == 0: Fibonacci_Positive.insert(i,fib1) 
+        elif i == 1: Fibonacci_Positive.insert(i,fib2)
+        else:
+            Fibonacci_Positive.insert(i,fib1+fib2)
+            time = fib2
+            fib2 = fib1+fib2
+            fib1 = time
+    return Fibonacci_Positive
+Fibonacci_Positive = Fibonacci_Pos(int(input('-> ')))
+print(Fibonacci_Positive)
 
-# os.system('CLS')
-# Oll_Fib = str(Fibonacci_Negative2+Fibonacci_Positive)
-# print(Oll_Fib)
+def Fibonacci_Neg(num):
+    '''
+    функция последовательности Фибоначчи с отрицательными числами
+    '''
+    Fibonacci_Negative = []
+    fib1 = 1
+    fib2 = -1
+    for i in range(num):
+        if i == 0: Fibonacci_Negative.insert(i,fib1)
+        elif i == 1: Fibonacci_Negative.insert(i,fib2)
+        else:
+            Fibonacci_Negative.insert(i,fib1-fib2)
+            time = fib2
+            fib2 = fib1-fib2
+            fib1 = time
+    return Fibonacci_Negative
+Fibonacci_Negative = Fibonacci_Neg(int(input('-> ')))
+print(Fibonacci_Negative)
 
+Oll_Fib = str(Fibonacci_Negative[::-1]+Fibonacci_Positive)
+print(Oll_Fib)
