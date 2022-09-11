@@ -1,3 +1,4 @@
+import datetime
 import math
 import os
 from re import I
@@ -67,18 +68,18 @@ os.system('CLS')
 # Это происходит до тех пор, пока не будет найден палиндром.
 # Напишите такую программу, которая найдет палиндром введенного пользователем числа.  
 
-def Polindrom(number):
-    number2 = str(number)[::-1] #развернули
-    if str(number) == str(number2):
-        # print(f'{number2}   --  полиндром')
-        return number2
-    return Polindrom(int(number2)+int(number))       
+# def Polindrom(number):
+#     number2 = str(number)[::-1] #развернули
+#     if str(number) == str(number2):
+#         # print(f'{number2}   --  полиндром')
+#         return number2
+#     return Polindrom(int(number2)+int(number))       
     
 
-number = input('Введите число: ')
-print('Вы ввели -> ', number)
+# number = input('Введите число: ')
+# print('Вы ввели -> ', number)
 
-print(Polindrom(number))
+# print(Polindrom(number))
 
 # check_palindrome(number, number2)
 
@@ -91,11 +92,11 @@ print(Polindrom(number))
 # 
 # from datetime import datetime
 
-# def random(_min:int, _max:int) -> int: 
-#     ''' Генерация случайного числа params: min - начало диапазона max - конец диапазона '''
-#     d = _max - _min #9
-#     ms = datetime.today().microsecond / (10 ** 6) 
-#     print(f'{ms=}') 
-#     return _min + math.ceil(d * ms)
+def random(_min:int, _max:int) -> int: 
+    ''' Генерация случайного числа params: min - начало диапазона max - конец диапазона '''
+    d = _max - _min
+    ms = datetime.datetime.today().microsecond / (10 ** 6) 
+    print(f'{ms=}') 
+    return _min + math.ceil(d * ms)
 
-# print(random(1,10))
+print(random(1,10))
