@@ -1,5 +1,5 @@
-# import os
-# os.system('CLS')
+import os
+os.system('CLS')
 
 # def random(_min:int, _max:int) -> int:
 #     '''
@@ -12,23 +12,15 @@
 #     ms = datetime.datetime.today().microsecond / (10 ** 6)
 #     #print(f'{ms=}')
 #     return _min + math.ceil(d * ms)
-def GetFibonacciList(n, L):
-    # Проверить, корректна ли длина списка
-    count = len(L)
 
-    if len(L)<2:
-        return []
+# Задайте список. Напишите программу, которая определит, присутствует ли в заданном списке строк некое число.
+# ['gfh5', 'gfh2', '67', 'jy32', '3put'] - ищем 32 - находим по индексу 3
 
-    # Получить последние числа в списке L
-    num1 = L[count-2]
-    num2 = L[count-1]
-
-    # Формула расчета следующего числа
-    if (num1+num2) < n:
-        L = L + [num1+num2]
-        return GetFibonacciList(n, L) # вызвать рекурсивно функцию
-    else:
-        return L # если достигнут конец, то обычный выход
-
-# Вызвать функцию GetFibonacciList()
-LL = GetFibonacciList(100, [0, 1])
+word = ['gfh5', 'gfh2', '67', 'jy32', '3put']
+n = '32'
+count = 0
+for i in word:
+    if n in i:
+        print(i, 'индекс ', count)
+    count+=1
+    
