@@ -5,12 +5,12 @@ os.system('CLS')
 # ['апап4', 'fdgg3', 'fgdf', '6', 'fg24'] - ищем 24 - найдено на 4 индексе
 
 
-# data = ['апап4', 'fdgg3', 'fgdf', '6', 'fg24']
-# count = 0
-# for i in data:
-#     if '24' in i:
-#         print([i], count)
-#     count += 1
+data = ['апап4', 'fdgg3', 'fgdf', '6', 'fg24']
+count = 0
+for i in data:
+    if '24' in i:
+        print([i], count)
+    count += 1
 
 # 2. Напишите программу, которая определит позицию второго вхождения строки в списке либо сообщит, что её нет.
 
