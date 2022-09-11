@@ -9,10 +9,12 @@ os.system('CLS')
             # Пример:
                     # [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 # import random_numb
-# numbers = random_numb.Random_Number()
+    
+# numbers = random_numb.Random_Number(-10,10,5)
 # print(numbers)
-
+    
 # def Summa_Numbers(numbers2):
+   
 #     sum: int = 0
 #     for i in numbers2:
 #         sum = sum + i
@@ -60,27 +62,33 @@ os.system('CLS')
 # [1.1, 1.2, 3.1, 5.17, 10.02] => 0.18 или 18
 # [4.07, 5.1, 8.2444, 6.98] - 0.91 или 91
 
-# num = [4.07, 5.1, 8.2444, 6.98] 
-# print('num -> ', num)
-# num2 = []
-# for i in num:
-#     '''
-#     округляем дробную часть
-#     '''
-#     i =("{:.2f}".format(i))
-#     num2.append(i)
-# print('num2 -> ',num2)
-# num3 = []
-# for i in num2:
-#     '''
-#     берём часть после точки через split
-#     '''
-#     num3.append(int(str(i).split('.')[1]))
-#     # num3.append(i-int(i))
-# print('num3 -> ',num3)
+Spisok_Numbers = [4.07, 5.1, 8.2444, 6.98] 
+print('Spisok_Numbers -> ', Spisok_Numbers)
+Integer_Numbers = []
+for i in Spisok_Numbers:
+    '''
+    берём часть после точки через split
+    '''
+    Integer_Numbers.append(str(str(i).split('.')[1]))
+print('второй вариант ', Integer_Numbers)
 
-# print(round(max(num3)-min(num3),2))
+def Min_Max(Integer_Numbers):
+    '''
+    в этой функции находим min и max, 
+    если максимальное число <10 добавляем поль
+    и вычисляем разницу
+    '''
+    raznica=0
+    maximum = max(Integer_Numbers)
+    minimum = min(Integer_Numbers)
+    print('min -> ', minimum, 'max -> ', maximum)
+    if int(maximum) < 10:
+        maximum = int(maximum) * 10
+        raznica = int(maximum)-int(minimum)
+    print(raznica)
+    return raznica
 
+Min_Max(Integer_Numbers)
 
             # 4- Напишите программу, которая будет преобразовывать десятичное число в двоичное. 
             # Подумайте, как это можно решить с помощью рекурсии.
