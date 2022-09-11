@@ -109,17 +109,17 @@ Min_Max(Integer_Numbers)
 # bin = Binary(int(input('-> '))) 
 # print(bin[::-1])   
 
-# bin = []
-# def Binary(num):
-#     '''рекурсия'''
-#     if num == 0:
-#         return 1
-#     else:
-#         bin.append(num%2)
-#         return Binary(num//2)
+bin = []
+def Binary(num):
+    '''рекурсия'''
+    if num == 0:
+        return 1
+    else:
+        bin.append(num%2)
+        return Binary(num//2)
     
-# num = Binary(int(input('-> '))) 
-# print(bin[::-1])  
+num = Binary(int(input('-> '))) 
+print(bin[::-1])  
 
 
 # 5-Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
