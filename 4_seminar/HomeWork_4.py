@@ -6,43 +6,28 @@ os.system('CLS')
 # N = 30 -> [2, 3, 5]
 
 number = int(input('введите число -> '))
-Simple_Factor = []
-i=2
-n=0
-while i <= number:
-    if number % i == 0 and i % i == 0 and i % 1 == 0:
-        Simple_Factor.append(i)
-        number /= i
-        i+=1
-    else:
-        i+=1
+def Search_Numbers(numbers):
+    Simple_Factor = []
+    i=2
+    n=0
+    while i <= number:
+        if number % i == 0 and i % i == 0 and i % 1 == 0:
+            Simple_Factor.append(i)
+            number /= i
+            i+=1
+        else:
+            i+=1
+        return Simple_Factor
+
 print(Simple_Factor)
 
-# number = int(input('введите число -> '))
-# Simple_Factor = []
-# i=0
-# n=0
-# while i < number:
-#     if number % 2 == 0:
-#         n = 2
-#         Simple_Factor.append(n)
-#         number /= 2
-#         i+=1
-#     elif number % 3 == 0:
-#         n = 3
-#         Simple_Factor.append(n)
-#         number /= 3
-#         i+=1
-#     elif number % 5 == 0:
-#         n = 5
-#         Simple_Factor.append(n)
-#         number /= 5
-#         i+=1
-# print(Simple_Factor)
 
 # 2 - Задайте последовательность чисел. Напишите программу, которая выведет список 
 # неповторяющихся элементов исходной последовательности. Не использовать множества.
 # [1,1,1,1,2,2,2,3,3,3,4] -> [1,2,3,4]
+
+numbers = [1,1,1,1,2,2,2,3,3,3,4]
+
 
 # 3 - В файле, содержащем фамилии студентов и их оценки, изменить на прописные буквы фамилии тех студентов,
 # которые имеют средний балл более «4».
