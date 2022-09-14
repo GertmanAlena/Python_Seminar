@@ -5,22 +5,33 @@ os.system('CLS')
 # N = 20 -> [2,5]
 # N = 30 -> [2, 3, 5]
 
-
-def Search_Numbers(number):
-    Simple_Factor = []
-    i=2
+#def Search_Numbers(number):
     
-    while i <= number:
-        if number % i == 0 and i % i == 0 and i % 1 == 0:
-            Simple_Factor.append(i)
-            number /= i
-            i+=1
-        else:
-            i+=1
-    return Simple_Factor
-number = Search_Numbers(int(input('введите число -> ')))
-print(number)
-
+#    Simple_Factor = []
+#    i=2
+    
+#    while i <= number:
+#        if number % i == 0 and i % i == 0 and i % 1 == 0:
+#            '''
+#            проверяем число с 2 (на 0 делить нельзя и на 1)
+#            ввели 20 -> пока i (это с 2) меньше 20
+#            проверяем число делится на i нацело
+#            делится ли i на саму себя и на 1 нацело 
+#            '''
+#            Simple_Factor.append(i)
+#            number /= i
+#            '''
+#            уменьшаем число на делением на i и заново в цикл 
+#            '''
+#            i+=1
+#        else:
+#            """
+#            если число не прошло проверки, просто переходим к следующему
+#            """
+#            i+=1
+#    return Simple_Factor
+#number = Search_Numbers(int(input('введите число -> ')))
+#print(number)
 
 # 2 - Задайте последовательность чисел. Напишите программу, которая выведет список 
 # неповторяющихся элементов исходной последовательности. Не использовать множества.
@@ -28,6 +39,19 @@ print(number)
 
 numbers = [1,1,1,1,2,2,2,3,3,3,4]
 
+def Sort(number):                
+    Sort_Number = []
+    num = number[0]
+    Sort_Number.append(num)
+    for i in number:
+        if i == num:
+            continue
+        else:
+            num = i
+            Sort_Number.append(i)
+
+    return Sort_Number
+print(Sort(numbers))
 
 # 3 - В файле, содержащем фамилии студентов и их оценки, изменить на прописные буквы фамилии тех студентов,
 # которые имеют средний балл более «4».
