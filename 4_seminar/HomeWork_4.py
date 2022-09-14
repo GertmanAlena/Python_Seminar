@@ -6,7 +6,7 @@ os.system('CLS')
 # N = 30 -> [2, 3, 5]
 
 number = int(input('введите число -> '))
-def Search_Numbers(numbers):
+def Search_Numbers(number):
     Simple_Factor = []
     i=2
     n=0
@@ -19,7 +19,7 @@ def Search_Numbers(numbers):
             i+=1
         return Simple_Factor
 
-print(Simple_Factor)
+print(Search_Numbers(number))
 
 
 # 2 - Задайте последовательность чисел. Напишите программу, которая выведет список 
