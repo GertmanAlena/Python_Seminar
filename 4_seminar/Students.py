@@ -28,7 +28,7 @@ with open('students.txt', 'a', encoding='utf-8') as data:
 
 		'''
 		n = 5
-		if Students[k] == n:
+		if Students[k] == n:  #значение студента с нидексом [k]
 			data.write('\n'+k.upper())
 			x = k.upper()
 			print(x)
