@@ -5,11 +5,11 @@ os.system('CLS')
 # N = 20 -> [2,5]
 # N = 30 -> [2, 3, 5]
 
-number = int(input('введите число -> '))
+
 def Search_Numbers(number):
     Simple_Factor = []
     i=2
-    n=0
+    
     while i <= number:
         if number % i == 0 and i % i == 0 and i % 1 == 0:
             Simple_Factor.append(i)
@@ -17,9 +17,9 @@ def Search_Numbers(number):
             i+=1
         else:
             i+=1
-        return Simple_Factor
-
-print(Search_Numbers(number))
+    return Simple_Factor
+number = Search_Numbers(int(input('введите число -> ')))
+print(number)
 
 
 # 2 - Задайте последовательность чисел. Напишите программу, которая выведет список 
