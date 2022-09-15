@@ -92,3 +92,20 @@ os.system('CLS')
 # al = Search_Alement(array, 1, int(input('->')))
 
 # print(al)
+
+source_text = 'AAAAAAAAAAAABBBBBBBBBBBCCCCCCCCCCDDDDDDEEEEEFFFFG python is sooooooo coooooool'
+
+compressed_text = ''
+no_alements = ' '
+alements = ''
+i=0
+while i < len(source_text):
+    
+    alements = source_text[i]
+    count_alements = 1
+    while i + 1 < len(source_text) and source_text[i] == source_text[i+1]:
+            count_alements+=1
+            i+=1
+    compressed_text = compressed_text + (str(count_alements) + alements)
+    i+=1
+print(compressed_text)
