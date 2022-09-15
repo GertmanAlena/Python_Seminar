@@ -7,31 +7,25 @@ os.system('CLS')
                         # N = 30 -> [2, 3, 5]
 
 # def Search_Numbers(number):
-    
-#    Simple_Factor = []
-#    i=2
-    
-#    while i <= number:
-#     if i != 4 and number % i == 0 and i % i == 0 and i % 1 == 0:
-#         '''
-#         проверяем число с 2 (на 0 делить нельзя и на 1)
-#         ввели 20 -> пока i (это с 2) меньше 20
-#         проверяем число делится на i нацело
-#         делится ли i на саму себя и на 1 нацело 
-#         '''
-#         Simple_Factor.append(i)
-#         number /= i
-#         '''
-#         уменьшаем число на делением на i и заново в цикл 
-#         '''
-#         i+=1
-#     else:
-#         """
-#         если число не прошло проверки, просто переходим к следующему
-#         """
-#         i+=1
-           
-#    return Simple_Factor
+#     Simple_Factor = []
+#     i=2
+#     '''
+#     если число делится на i без остатка, то в строке 21 добавляем это число
+#     делим на i до тех пор пока число делится на него без остатка
+#     но в отдельном цикле, чтобы не записывать одинаковые числа (строки 22-23)
+#     если число не делится на i переходим на новое i (строка 25) и возвращаемя на 19 строку
+#     последняя проверка, чтобы записать оставшееся от делений число (строка 26)
+#     '''
+#     while i*i <= number:
+#         if number % i == 0:
+#             Simple_Factor.append(i)
+#             while number % i == 0:
+#                 number /= i
+#         else:
+#             i+=1
+#     if number > i:
+#         Simple_Factor.append(int(number))      
+#     return Simple_Factor
 # number = Search_Numbers(int(input('введите число -> ')))
 # print(number)
 
@@ -85,22 +79,25 @@ os.system('CLS')
 
 def Сaesar_Сipher(word):
 
-    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z']
-    
+    alphabet_Eng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z']
+    alphabet_Ru = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
     cipher_list = [''] 
-    
 
     for i in range(len(word)):
-        if word[i] in alphabet:
+        if word[i] in alphabet_Eng:
             try:
-                cipher_list.append(alphabet[alphabet.index(word[i])+2])
+                cipher_list.append(alphabet_Eng[alphabet_Eng.index(word[i])+2])
+            except IndexError:
+                print('таких букв нет')
+        if word[i] in alphabet_Ru:
+            try:
+                cipher_list.append(alphabet_Ru[alphabet_Ru.index(word[i])+2])
             except IndexError:
                 print('таких букв нет')
     cipher_string="".join(map(str, cipher_list))
     return cipher_string
   
 word = input()
-
 print(Сaesar_Сipher(word))
 
 
