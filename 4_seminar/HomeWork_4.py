@@ -9,13 +9,13 @@ os.system('CLS')
 # def Search_Numbers(number):
 #     Simple_Factor = []
 #     i=2
-#     '''
-#     если число делится на i без остатка, то в строке 21 добавляем это число
-#     делим на i до тех пор пока число делится на него без остатка
-#     но в отдельном цикле, чтобы не записывать одинаковые числа (строки 22-23)
-#     если число не делится на i переходим на новое i (строка 25) и возвращаемя на 19 строку
-#     последняя проверка, чтобы записать оставшееся от делений число (строка 26)
-#     '''
+#     # '''
+#     # если число делится на i без остатка, то в строке 21 добавляем это число
+#     # делим на i до тех пор пока число делится на него без остатка
+#     # но в отдельном цикле, чтобы не записывать одинаковые числа (строки 22-23)
+#     # если число не делится на i переходим на новое i (строка 25) и возвращаемя на 19 строку
+#     # последняя проверка, чтобы записать оставшееся от делений число (строка 26)
+#     # '''
 #     while i*i <= number:
 #         if number % i == 0:
 #             Simple_Factor.append(i)
@@ -152,7 +152,7 @@ with open('RLE.txt', 'r', encoding='utf-8') as data:
         source_text += i
     
     compressed_text = ''
-    no_alements = ' '
+    # no_alements = ' '
     alements = ''
     i=0
     while i < len(source_text):
@@ -168,3 +168,26 @@ with open('RLE.txt', 'r', encoding='utf-8') as data:
     new = open('rez_RLE.txt', 'w',encoding='utf-8')
     new.writelines(compressed_text)
     new.close()
+with open('rez_RLE.txt', 'r', encoding='utf-8') as data:
+    text = ''
+    for i in data:
+        text+= i
+    print(text)
+   
+    rez_text = ''
+    alements = ''
+    vrem_int = ''
+    for i in text:
+        
+        if i.isdigit():
+            
+            vrem_int+=i
+        else: 
+            alements = i
+            vrem_int = int(vrem_int)
+            rez_text = rez_text + vrem_int*alements
+            vrem_int = ''
+    print('rez_text -> ', rez_text)
+
+
+            
