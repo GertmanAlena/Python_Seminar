@@ -174,20 +174,17 @@ with open('rez_RLE.txt', 'r', encoding='utf-8') as data:
         text+= i
     print(text)
    
-    rez_text = ''
+    decod = ''
     alements = ''
     vrem_int = ''
     for i in text:
-        
         if i.isdigit():
-            
             vrem_int+=i
         else: 
             alements = i
-            vrem_int = int(vrem_int)
-            rez_text = rez_text + vrem_int*alements
+            decod += int(vrem_int)*alements
             vrem_int = ''
-    print('rez_text -> ', rez_text)
+    print('decod -> ', decod)
 
 
             
