@@ -98,16 +98,16 @@ os.system('CLS')
 # 3 -> 11
 # 2 -> 10
 
-# def Binary(num):
-#     '''без рекурсии'''
-#     bin = []
-#     while num > 0:
-#         bin.append(num%2)
-#         num//=2
-#     return bin
+def Binary(num):
+    '''без рекурсии'''
+    bin = []
+    while num > 0:
+        bin.append(num%2)
+        num//=2
+    return bin
 
-# bin = Binary(int(input('-> '))) 
-# print(bin[::-1])   
+bin = Binary(int(input('-> '))) 
+print(bin[::-1])   
 
 # bin = []
 # def Binary(num, n):
