@@ -11,26 +11,26 @@ os.system('CLS')
 # 67.82 -> 23
 # 0.56 -> 11
 
-# number = input('Введите дробное число: ')
-# print('Вы ввели', number, end= ' ')
+number = input('Введите дробное число: ')
+print('Вы ввели', number, end= ' ')
 
-# separation = number.split('.')
-# num = separation[0] + separation[1]
+separation = number.split('.')
+num = separation[0] + separation[1]
     
-# print('число = ', num)
+print('число = ', num)
 
-# def sum_num(num):
-#     sum = 0
-#     if int(num) < 0: num *= -1      
-#     while int(num) > 0:
-#         if num % 10 != 0:
-#             a = num%10
-#             sum += a
-#             num = int(num/10)
-#     else: sum = sum + num
-#     return sum
+def sum_num(num):
+    sum = 0
+    if int(num) < 0: num *= -1      
+    while int(num) > 0:
+        if num % 10 != 0:
+            a = num%10
+            sum += a
+            num = int(num/10)
+    else: sum = sum + num
+    return sum
 
-# print(sum_num(int(num)))
+print(sum_num(int(num)))
 
 
                                                 # Задача 2
@@ -92,11 +92,11 @@ os.system('CLS')
 # 
 # from datetime import datetime
 
-def random(_min:int, _max:int) -> int: 
-    ''' Генерация случайного числа params: min - начало диапазона max - конец диапазона '''
-    d = _max - _min
-    ms = datetime.datetime.today().microsecond / (10 ** 6) 
-    print(f'{ms=}') 
-    return _min + math.ceil(d * ms)
+# def random(_min:int, _max:int) -> int: 
+#     ''' Генерация случайного числа params: min - начало диапазона max - конец диапазона '''
+#     d = _max - _min
+#     ms = datetime.datetime.today().microsecond / (10 ** 6) 
+#     print(f'{ms=}') 
+#     return _min + math.ceil(d * ms)
 
-print(random(1,10))
+# print(random(1,10))
