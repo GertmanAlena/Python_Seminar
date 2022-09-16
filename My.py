@@ -1,8 +1,11 @@
 import datetime
 from collections import Counter
+from functools import reduce
 
 import math
+from multiprocessing.sharedctypes import Value
 import os
+import random
 os.system('CLS')
 
 # Задайте список. Напишите программу, которая определит, присутствует ли в заданном списке строк некое число.
@@ -55,42 +58,49 @@ os.system('CLS')
 '''
 Найти наиболее часто встречающийся элемент в массиве целых чисел.
 '''
-# array = [1,2,2,5,7,7,8,1,2] 
 
-# def Search_Alement(array, al, count):
-#     while array:
-#         alement = array[0]
-#         count_Alement = 0
+# numbers = [random.randrange(1, 15, 1) for i in range(15)]
 
-#         alement2 = array[1]
-#         count_Alement2 = 0          
-#         al = 0
-#         count = 0
-#         z = len(array)
+# max = 0
+# v_max = 0
+# max_al = ''
+# j = 0
+# while j < len(numbers):
+#     alement = numbers[j]
+#     count = 0
+#     for i in numbers:
         
-#         i=0
-#         if len(array) < 2:return
-#         while i < z:
-#             if array[i] == alement: 
-#                 count_Alement+=1
-#                 array.remove(array[i])
-#                 z-=1
-#             elif array[i] == alement2:
-#                 count_Alement2+=1
-#                 array.remove(array[i])
-#                 z-=1
-#             else: i+=1
-#         if count_Alement > count_Alement2:
-#             al = int(alement)
-#             count = count_Alement
-#         else: 
-#             al = int(alement2)
-#             count = count_Alement2
+#         if i == alement:
+#             count+=1
+    
+#     v_max = count
+#     if v_max > max:
+#         max = v_max
+#         max_al = alement
+#     j+=1
+# print(numbers)
+# print(f'число {max_al} повторяется {max} раз(а)')
 
-#     return Search_Alement(array, al, count)
+numbers = [random.randrange(1, 10, 1) for i in range(20)]
+print(numbers)
+max = 0
+v_max = 0
+max_al = ''
+j = 0
+while j < len(numbers):
+    alement = numbers[0]
+    count = 0
+    i=numbers[0]
+    while i in numbers:
+        
+        if i == alement:
+            count+=1
+            numbers.remove(i)
+    
+    v_max = count
+    if v_max > max:
+        max = v_max
+        max_al = alement
+    j+=1
 
-# al = Search_Alement(array, 1, int(input('->')))
-
-# print(al)
-
-
+print(f'число {max_al} повторяется {max} раз(а)')
