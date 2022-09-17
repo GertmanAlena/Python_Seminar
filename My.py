@@ -81,7 +81,7 @@ os.system('CLS')
 # print(numbers)
 # print(f'число {max_al} повторяется {max} раз(а)')
 
-numbers = [random.randrange(1, 10, 1) for i in range(20)]
+numbers = [random.randrange(1, 5, 1) for i in range(10)]
 print(numbers)
 max = 0
 v_max = 0
