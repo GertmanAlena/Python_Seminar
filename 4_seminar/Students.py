@@ -21,18 +21,18 @@ with open('students.txt', 'w', encoding='utf-8') as data:  # пока работ
 	print(Students)
 	
 with open('students.txt', 'a', encoding='utf-8') as data:
-	for k in Students:
+	for student, mark in Students.items():
 		'''
 		Students 'Соловьёва Дарья': 5  читается как
 		имя с индексом [к] имеет значение 5
 
 		'''
 		n = 5
-		if Students[k] == n:  #значение студента с нидексом [k]
-			data.write('\n'+k.upper())
-			x = k.upper()
+		if Students[student] == n:  #значение студента с нидексом [k]
+			data.write('\n'+student.upper())
+			x = student.upper()
 			print(x)
 		else:
-			data.write('\n'+k)
+			data.write('\n'+student + ' ' +  str(mark))
 
 
