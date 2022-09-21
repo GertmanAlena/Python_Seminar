@@ -23,38 +23,89 @@ os.system('CLS')
                                     # a) Добавьте игру против бота
                                     # b) Подумайте как наделить бота "интеллектом"
 
-# player1 = int(input("введите число от 1 до 28 -> "))
-# player2 = int(input("введите число от 1 до 28 -> "))
-# total = 51
-# count1 = 0
-# count2 = 0
-# player1 = 0
-# player2 = 0
-# min = 1
-# max = 7
-# x=1
-# # x = random.randint(1, 3) 
-# print(x)
-# if x == 1: # играю за первого
-#     print(f'{player1} начинает игру первым!!!')
-#     player1 = int(total%(min+max)+1)
-#     count1+=1
-#     total = total - player1
-#     while count1 < 5:
-#         player2 = int(input("введите число от 1 до 7 -> "))
-#         total = total - player2
-#         count2+=1
-#         if count1 == 5:
-#             player1 = (min+max) - player2
-#             count1+=1
-#             total = total - player1
-            
-#         elif total != (min+max)+1:
-#             player1 = (min+max) - player2
-#             count1+=1
-#             total = total - player1
-#         else:
-#             print("сколько бы второй не взял, первый выиграл")
+player1 = input('Введите своё имя!')
+print(f'привет {player1}')
+
+def is_number_of_candies(): 
+    '''
+    начальное количество конфет
+    ''' 
+    while True:
+        try:
+            number_of_candies = int(input('Введите количество конфет'))
+            if number_of_candies > 0 and number_of_candies > 10:
+                break
+            else:
+                print('Ошибка. Ещё раз.')
+        except ValueError:
+            print('Ошибка. Ожидалось вещественное число.')
+    return number_of_candies
+number_of_candies = is_number_of_candies()
+
+min = 1
+
+def max_candies(): 
+    '''
+    начальное количество конфет
+    ''' 
+    while True:
+        try:
+            max = int(input('Введите сколько можно максимум брать конфет'))
+            if max > min and max < number_of_candies/3:
+                break
+            else:
+                print('Ошибка. Ещё раз.')
+        except ValueError:
+            print('Ошибка. Ожидалось вещественное число.')
+    return max
+max = max_candies()
+
+print(f'у нас конфет {number_of_candies}, можно взять конфет от {min} до {max}')
+print(f'{player1}, давайте определим кто ходит первый и начнём игру!!!')
+
+
+def step_bot(number_of_candies, min, max):
+    if number_of_candies > (min + max)+1: # если число конфет больше (min + max)+1
+        step_bot = random.randint(1, max)
+        number_of_candies = number_of_candies - step_bot
+        print(f' бот взял {step_bot} конфет и осталось {number_of_candies} конфет')
+        return player_step(number_of_candies, min, max)
+    elif number_of_candies == (min + max): # если число конфет == (min + max)+1
+        step_bot = max
+        number_of_candies = number_of_candies - step_bot
+        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфета')
+        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
+    elif number_of_candies == max: # если число конфет == max
+        step_bot = max-1
+        number_of_candies = number_of_candies - step_bot
+        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфета')
+        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
+    elif number_of_candies == (min + max)+1: # если число конфет == (min + max)+1
+        step_bot = min + max
+        number_of_candies = number_of_candies - step_bot
+        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфет')
+        print(f'  осталась {number_of_candies} конфета! {player1} - ВЫ проиграли!')
+        return player_step(number_of_candies, min, max)
+    elif number_of_candies == 1:
+        print(f' {player1} - ВЫИГРАЛ! осталась {number_of_candies} конфета!')
+
+def player_step(number_of_candies, min, max):
+    if number_of_candies != 1:
+        step_player = int(input(f'{player1} введите число конфет - >'))
+        number_of_candies = number_of_candies - step_player
+        print(f'{player1} взял {step_player} конфет. Осталось {number_of_candies}')
+        return step_bot(number_of_candies, min, max)
+    if number_of_candies == 1:
+        print(f' {player1} - ВЫ проиграли! осталась {number_of_candies} конфета!')
+
+first_step = random.randint(1, 2)
+if first_step == 1:
+    print(f'{player1}, Вы начинаете игру!!!')
+    number_of_candies = player_step(number_of_candies, min, max)
+    #функция если первым ходит игрок
+if first_step == 2:
+    print('Игру начинает Бот!!!')
+    number_of_candies = step_bot(number_of_candies, min, max) # шаг сделал бот
    
 # 3-Создайте два списка — один с названиями языков программирования, 
 # другой — с числами от 1 до длины первого.
