@@ -32,7 +32,7 @@ def is_number_of_candies():
     ''' 
     while True:
         try:
-            number_of_candies = int(input('Введите количество конфет'))
+            number_of_candies = int(input('Введите количество конфет -> '))
             if number_of_candies > 0 and number_of_candies > 10:
                 break
             else:
@@ -50,7 +50,7 @@ def max_candies():
     ''' 
     while True:
         try:
-            max = int(input('Введите сколько можно максимум брать конфет'))
+            max = int(input('Сколько конфет максимально можно брать? - > '))
             if max > min and max < number_of_candies/3:
                 break
             else:
@@ -60,39 +60,69 @@ def max_candies():
     return max
 max = max_candies()
 
-print(f'у нас конфет {number_of_candies}, можно взять конфет от {min} до {max}')
-print(f'{player1}, давайте определим кто ходит первый и начнём игру!!!')
+print(f'у нас конфет -> {number_of_candies}, можно взять от {min} до {max}')
+print(f'{player1}, давайте определим кто ходит первый рандомно и начнём игру!!!')
 
+def step_ok(): 
+    '''
+    проверка на правильность хода
+    ''' 
+    while True:
+        try:
+            step_player = int(input(f'{player1} сколько конфет Вы возмёте - > '))
+            if step_player >= min and step_player <= max:
+                break
+            else:
+                print('Ошибка. Ещё раз.')
+        except ValueError:
+            print('Ошибка. Ожидалось вещественное число.')
+    return step_player
 
 def step_bot(number_of_candies, min, max):
-    if number_of_candies > (min + max)+1: # если число конфет больше (min + max)+1
+    if number_of_candies == 1:
+        print(f' {player1} - ВЫИГРАЛ! осталась {number_of_candies} конфета!')
+    if number_of_candies > (min + max)+2: # если число конфет больше (min + max)+1
         step_bot = random.randint(1, max)
         number_of_candies = number_of_candies - step_bot
-        print(f' бот взял {step_bot} конфет и осталось {number_of_candies} конфет')
+        print(f' бот взял {step_bot} осталось {number_of_candies} конфет')
         return player_step(number_of_candies, min, max)
-    elif number_of_candies == (min + max): # если число конфет == (min + max)+1
-        step_bot = max
+    if number_of_candies == (min + max)+2: # если число конфет == (min + max)+1
+        step_bot = min
         number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфета')
+        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
+        return player_step(number_of_candies, min, max)
+    if number_of_candies == min + min: # если число конфет == (min + max)+1
+        step_bot = min
+        number_of_candies = number_of_candies - step_bot
+        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
         print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    elif number_of_candies == max: # если число конфет == max
+    if number_of_candies == max + max: # если число конфет == (min + max)+1
+        step_bot = max - 1
+        number_of_candies = number_of_candies - step_bot
+        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
+        return player_step(number_of_candies, min, max)
+    if number_of_candies == max: # если число конфет == max
         step_bot = max-1
         number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфета')
+        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
         print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    elif number_of_candies == (min + max)+1: # если число конфет == (min + max)+1
+    if number_of_candies == max + min: # если число конфет == max
+        step_bot = max
+        number_of_candies = number_of_candies - step_bot
+        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
+        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
+    if number_of_candies == (min + max)+1: # если число конфет == (min + max)+1
         step_bot = min + max
         number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфет')
+        print(f'  бот взял {step_bot}  осталось {number_of_candies} конфет')
         print(f'  осталась {number_of_candies} конфета! {player1} - ВЫ проиграли!')
         return player_step(number_of_candies, min, max)
-    elif number_of_candies == 1:
-        print(f' {player1} - ВЫИГРАЛ! осталась {number_of_candies} конфета!')
+    
 
 def player_step(number_of_candies, min, max):
     if number_of_candies != 1:
-        step_player = int(input(f'{player1} введите число конфет - >'))
-        number_of_candies = number_of_candies - step_player
+        step_player = step_ok()
+        number_of_candies = number_of_candies - step_player #сделать  метод проверки числа от мин до макс
         print(f'{player1} взял {step_player} конфет. Осталось {number_of_candies}')
         return step_bot(number_of_candies, min, max)
     if number_of_candies == 1:
@@ -102,29 +132,29 @@ first_step = random.randint(1, 2)
 if first_step == 1:
     print(f'{player1}, Вы начинаете игру!!!')
     number_of_candies = player_step(number_of_candies, min, max)
-    #функция если первым ходит игрок
-if first_step == 2:
+    
+if first_step == 2:  #  вызывает функцию, длля бота
     print('Игру начинает Бот!!!')
     number_of_candies = step_bot(number_of_candies, min, max) # шаг сделал бот
    
-# 3-Создайте два списка — один с названиями языков программирования, 
-# другой — с числами от 1 до длины первого.
-# ['python', 'c#']
-# [1,2]
-# Вам нужно сделать две функции: первая из которых создаст список кортежей, состоящих из номера и языка, написанного большими буквами.
-# [(1,'PYTHON'), (2,'C#')]
-# Вторая — которая отфильтрует этот список следующим образом: 
-# если сумма очков слова имеет в делителях номер, с которым она в паре в кортеже, 
-# то кортеж остается, его номер заменяется на сумму очков.
-# [сумма очков c# = 102, в делителях есть 2 с которым в паре. Значит список будет]
-# [(1,'PYTHON'), (102,'C#')]
-# Если нет — удаляется. Суммой очков называется сложение порядковых номеров букв в слове. 
-# Порядковые номера смотрите в этой таблице, в третьем столбце: https://www.charset.org/utf-8
-# Это — 16-ричная система, поищите, как правильнее и быстрее получать эти символы.
-# Cложите получившиеся числа и верните из функции в качестве ответа вместе с преобразованным списком
-# https://dzen.ru/media/simplichka/kak-tekst-hranitsia-v-kompiutere-chast-3-62d3d91515d67a522f78e1e6?&
+            # 3-Создайте два списка — один с названиями языков программирования, 
+            # другой — с числами от 1 до длины первого.
+            # ['python', 'c#']
+            # [1,2]
+            # Вам нужно сделать две функции: первая из которых создаст список кортежей, состоящих из номера и языка, написанного большими буквами.
+            # [(1,'PYTHON'), (2,'C#')]
+            # Вторая — которая отфильтрует этот список следующим образом: 
+            # если сумма очков слова имеет в делителях номер, с которым она в паре в кортеже, 
+            # то кортеж остается, его номер заменяется на сумму очков.
+            # [сумма очков c# = 102, в делителях есть 2 с которым в паре. Значит список будет]
+            # [(1,'PYTHON'), (102,'C#')]
+            # Если нет — удаляется. Суммой очков называется сложение порядковых номеров букв в слове. 
+            # Порядковые номера смотрите в этой таблице, в третьем столбце: https://www.charset.org/utf-8
+            # Это — 16-ричная система, поищите, как правильнее и быстрее получать эти символы.
+            # Cложите получившиеся числа и верните из функции в качестве ответа вместе с преобразованным списком
+            # https://dzen.ru/media/simplichka/kak-tekst-hranitsia-v-kompiutere-chast-3-62d3d91515d67a522f78e1e6?&
 
-# programming_languages = ['python', 'c#', 'Java', 'JavaScript']
+# programming_languages = ['python', 'c#', 'Java', 'JavaScript', 'Visual development tools']
 # list_numbers = list(range(1, len(programming_languages)+1))
 # first_spisok = list(zip(list_numbers, programming_languages))
 # print(first_spisok)
