@@ -67,7 +67,7 @@ os.system('CLS')
                     # 2+2 => 4;
                     # 1+2*3 => 7;
 
-data = '2+2+5/5-1+6/3'    
+data = input('Введите пример - > ')    
 operators_list = ['/', '*', '-', '+']
 priority_list = [1, 1, 2, 2]
 '''
