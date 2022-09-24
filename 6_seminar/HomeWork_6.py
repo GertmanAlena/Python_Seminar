@@ -1,176 +1,151 @@
+
+import math
+import numbers
 import os
 from pickletools import int4
 import random
+import re
 os.system('CLS')
 
+# 1- Определить, присутствует ли в заданном списке строк, некоторое число
 
-                                    # 1- Напишите программу, удаляющую из текста все слова, содержащие ""абв"".
-                                    # 'абвгдейка - это передача' = >" - это передача"
+# data = input('Введите что-то ')
+# print(["Yes" if len([print(i) for i in data if i.isdigit()]) > 0 else "No"])
 
-# text = input("Введите текст -> "'\n').split()
-# simbol = (input("Введите слово для поиска -> "'\n'))
+# 2- Найти сумму чисел списка стоящих на нечетной позиции
 
-# new_text = ' '.join(filter(lambda j: simbol not in j, text))
-# print(new_text)
+# number = list(map(int, input('Введите числа через пробел -> ').split(' ')))
+# print (f' сумма чисел на нечётных позициях = {sum(number[1::2])}')
 
-                                    # 2- Создайте программу для игры с конфетами человек против человека.
-                                    # Условие задачи: На столе лежит 2021 конфета(или сколько вы зададите). 
-                                    # Играют два игрока делая ход друг после друга. Первый ход определяется жеребьёвкой. 
-                                    # За один ход можно забрать не более чем 28 конфет(или сколько вы зададите). 
-                                    # Тот, кто берет последнюю конфету - проиграл.
-                                    # Предусмотрите последний ход, ибо там конфет остается меньше.
+# 4- Определить, позицию второго вхождения строки в списке либо сообщить, что её нет.
+# Примеры
+# список: ["qwe", "asd", "zxc", "qwe", "ertqwe"], ищем: "qwe", ответ: 3
+# список: ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"], ищем: "йцу", ответ: 5
+# список: ["йцу", "фыв", "ячс", "цук", "йцукен"], ищем: "йцу", ответ: -1
+# список: ["123", "234", 123, "567"], ищем: "123", ответ: -1
+# список: [], ищем: "123", ответ: -1
 
-                                    # a) Добавьте игру против бота
-                                    # b) Подумайте как наделить бота "интеллектом"
+# data = ["цук", "йцу", "цук", "фыв", "ячс", "цук", "йцукен", "йцу"]
+# elem = "цук"
 
-player1 = input('Введите своё имя!')
-print(f'привет {player1}')
+# oll_list = list(enumerate(data))
+# list_elem = list(filter(lambda x: elem in x, oll_list))
+# print(list_elem)
+# print([list_elem[1][0] if len else "No"])
 
-def is_number_of_candies(): 
-    '''
-    начальное количество конфет
-    ''' 
-    while True:
-        try:
-            number_of_candies = int(input('Введите количество конфет -> '))
-            if number_of_candies > 0 and number_of_candies > 10:
-                break
-            else:
-                print('Ошибка. Ещё раз.')
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-    return number_of_candies
-number_of_candies = is_number_of_candies()
 
-min = 1
+                # 6-Сформировать список из N членов последовательности.
+                # Для N = 5: 1, -3, 9, -27, 81 и т.д.
 
-def max_candies(): 
-    '''
-    начальное количество конфет
-    ''' 
-    while True:
-        try:
-            max = int(input('Сколько конфет максимально можно брать? - > '))
-            if max > min and max < number_of_candies/3:
-                break
-            else:
-                print('Ошибка. Ещё раз.')
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-    return max
-max = max_candies()
+# def inputFloat(prompt=None):  # ПРОВЕРКА НА INT
+#     while True:
+#         n = input(prompt)
+#         try:
+#             if int(n) > 0:
+#                 return int(n)
+#         except ValueError:
+#             print('Ошибка. Ожидалось вещественное число.')
+  
+# print(*[(-3) ** i for i in range(int(inputFloat('Введите количество элементов: ')))])
 
-print(f'у нас конфет -> {number_of_candies}, можно взять от {min} до {max}')
-print(f'{player1}, давайте определим кто ходит первый рандомно и начнём игру!!!')
 
-def step_ok(): 
-    '''
-    проверка на правильность хода
-    ''' 
-    while True:
-        try:
-            step_player = int(input(f'{player1} сколько конфет Вы возмёте - > '))
-            if step_player >= min and step_player <= max:
-                break
-            else:
-                print('Ошибка. Ещё раз.')
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-    return step_player
+            # 5- Найти произведение пар чисел в списке. 
+            # Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 
-def step_bot(number_of_candies, min, max):
-    if number_of_candies == 1:
-        print(f' {player1} - ВЫИГРАЛ! осталась {number_of_candies} конфета!')
-    if number_of_candies > (min + max)+2: # если число конфет больше (min + max)+1
-        step_bot = random.randint(1, max)
-        number_of_candies = number_of_candies - step_bot
-        print(f' бот взял {step_bot} осталось {number_of_candies} конфет')
-        return player_step(number_of_candies, min, max)
-    if number_of_candies == (min + max)+2: # если число конфет == (min + max)+1
-        step_bot = min
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
-        return player_step(number_of_candies, min, max)
-    if number_of_candies == min + min: # если число конфет == (min + max)+1
-        step_bot = min
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
-        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    if number_of_candies == max + max: # если число конфет == (min + max)+1
-        step_bot = max - 1
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
-        return player_step(number_of_candies, min, max)
-    if number_of_candies == max: # если число конфет == max
-        step_bot = max-1
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
-        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    if number_of_candies == max + min: # если число конфет == max
-        step_bot = max
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} осталось {number_of_candies} конфета')
-        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    if number_of_candies == (min + max)+1: # если число конфет == (min + max)+1
-        step_bot = min + max
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot}  осталось {number_of_candies} конфет')
-        print(f'  осталась {number_of_candies} конфета! {player1} - ВЫ проиграли!')
-        return player_step(number_of_candies, min, max)
+# First_List = [random.randint(1, 10) for i in range (7)]
+# print('First_List ', First_List)
+
+# Proizved_Alem = [First_List[i] * First_List[-i-1] for i in range(math.ceil(len(First_List)/2))]
+# print('Proizved_Alem ', Proizved_Alem)
+
+                    # Задание с семинара
+                    # Напишите программу вычисления арифметического выражения заданного строкой.
+                    # Используйте операции +,-,/,. приоритет операций стандартный.
+                    # Дополнительное задание: Добавьте возможность использования скобок, 
+                    # меняющих приоритет операций
+                    # *Пример:
+                    # 2+2 => 4;
+                    # 1+2*3 => 7;
+
+data = '2+2+5/5-1+6/3'    
+operators_list = ['/', '*', '-', '+']
+priority_list = [1, 1, 2, 2]
+'''
+[(1, '/'), (1, '*'), (2, '+'), (2, '-')]
+'''
+unite_list = list(zip(priority_list, operators_list))
+print(unite_list)
+
+def get_number(data):
+    number = []
+    alem = []
+    temp_num = '' # тут склеиваем цифры
+    data += '='
+    for char in data:
+        if char.isdigit():
+            temp_num += char
+        else:
+            number.append(temp_num)
+            alem.append(char)
+            temp_num = ''
     
+    return number, alem[:-1]
 
-def player_step(number_of_candies, min, max):
-    if number_of_candies != 1:
-        step_player = step_ok()
-        number_of_candies = number_of_candies - step_player #сделать  метод проверки числа от мин до макс
-        print(f'{player1} взял {step_player} конфет. Осталось {number_of_candies}')
-        return step_bot(number_of_candies, min, max)
-    if number_of_candies == 1:
-        print(f' {player1} - ВЫ проиграли! осталась {number_of_candies} конфета!')
+def div(a, b):
+    return int(a) // int(b)
+def mult(a, b):
+    return int(a) * int(b)
+def sum(a, b):
+    return int(a) + int(b)
+def sub(a, b):
+    return int(a) - int(b)
 
-first_step = random.randint(1, 2)
-if first_step == 1:
-    print(f'{player1}, Вы начинаете игру!!!')
-    number_of_candies = player_step(number_of_candies, min, max)
-    
-if first_step == 2:  #  вызывает функцию, длля бота
-    print('Игру начинает Бот!!!')
-    number_of_candies = step_bot(number_of_candies, min, max) # шаг сделал бот
-   
-            # 3-Создайте два списка — один с названиями языков программирования, 
-            # другой — с числами от 1 до длины первого.
-            # ['python', 'c#']
-            # [1,2]
-            # Вам нужно сделать две функции: первая из которых создаст список кортежей, состоящих из номера и языка, написанного большими буквами.
-            # [(1,'PYTHON'), (2,'C#')]
-            # Вторая — которая отфильтрует этот список следующим образом: 
-            # если сумма очков слова имеет в делителях номер, с которым она в паре в кортеже, 
-            # то кортеж остается, его номер заменяется на сумму очков.
-            # [сумма очков c# = 102, в делителях есть 2 с которым в паре. Значит список будет]
-            # [(1,'PYTHON'), (102,'C#')]
-            # Если нет — удаляется. Суммой очков называется сложение порядковых номеров букв в слове. 
-            # Порядковые номера смотрите в этой таблице, в третьем столбце: https://www.charset.org/utf-8
-            # Это — 16-ричная система, поищите, как правильнее и быстрее получать эти символы.
-            # Cложите получившиеся числа и верните из функции в качестве ответа вместе с преобразованным списком
-            # https://dzen.ru/media/simplichka/kak-tekst-hranitsia-v-kompiutere-chast-3-62d3d91515d67a522f78e1e6?&
+                                          #  [(1, '/'), (1, '*'), (2, '+'), (2, '-')]  unite_list
+number_list, oper_list = get_number(data)  # ['22', '2', '5', '2']   ['-', '+', '*', '=']
 
-# programming_languages = ['python', 'c#', 'Java', 'JavaScript', 'Visual development tools']
-# list_numbers = list(range(1, len(programming_languages)+1))
-# first_spisok = list(zip(list_numbers, programming_languages))
-# print(first_spisok)
+def calk(unite_list, oper_list, number_list):
 
-# def Sum(first_spisok):
-#     list_ball = []
-#     list_language = []
-#     for i in first_spisok:   #(1, 'python') (2, 'c#')
-#         sum = 0
-#         for j in i[1]:        #python  c#
-#             sum += ord(j)
-#         if sum%i[0] == 0:
-#             list_ball.append(sum)
-#             list_language.append(i[1])
-#     sum_spisok = list(zip(list_ball, list_language))
-#     return sum_spisok
-
-# sum_spisok = Sum(first_spisok)      
-# print(sum_spisok)
+    for i in unite_list:                
+        if i[0] == 1:           # i в (1, '/'), (1, '*')
+            for j in oper_list: # ['-', '+', '*', '=']
+                if j == i[1]:
+                    index_alem = oper_list.index(j)
+                    if j == '*':
+                        while '*' in oper_list:
+                            mult_num = mult(number_list[index_alem], number_list[index_alem+1])
+                            number_list.pop(index_alem)
+                            number_list.pop(index_alem)
+                            number_list.insert(index_alem, mult_num)
+                            oper_list.pop(index_alem)
+                    if j == '/':
+                        while '/' in oper_list:
+                            div_num = div(number_list[index_alem], number_list[index_alem+1])
+                            number_list.pop(index_alem)
+                            number_list.pop(index_alem)
+                            number_list.insert(index_alem, div_num)
+                            oper_list.pop(index_alem)
+    for i in unite_list:    
+        if i[0] == 2:           
+            for j in oper_list:
+                
+                if j == i[1]:
+                    index_alem = oper_list.index(j)
+                    # print(index_alem)
+                    if j == '-':
+                        while '-' in oper_list:
+                            sub_num = sub(number_list[index_alem], number_list[index_alem+1])
+                            number_list.pop(index_alem)
+                            number_list.pop(index_alem)
+                            number_list.insert(index_alem, sub_num)
+                            oper_list.pop(index_alem)
+                    if j == '+':
+                        while '+' in oper_list:
+                            sum_num = sum(number_list[index_alem], number_list[index_alem+1])
+                            number_list.pop(index_alem)
+                            number_list.pop(index_alem)
+                            number_list.insert(index_alem, sum_num)
+                            oper_list.pop(index_alem)
+    return number_list
+                        
+rezult = calk(unite_list, oper_list, number_list)
+print(rezult)
