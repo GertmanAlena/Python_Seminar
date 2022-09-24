@@ -20,7 +20,8 @@ os.system('CLS')
 #         print(i, 'индекс ', count)
 #     count+=1
 
-# Напишите программу, которая определит позицию второго вхождения строки в списке либо сообщит, что её нет.
+# Напишите программу, которая определит позицию второго вхождения строки в списке либо сообщит, 
+# что её нет.
 # Пример:
 # список: ["qwe", "asd", "zxc", "qwe", "ertqwe"], ищем: "qwe", ответ: 3
 # список: ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"], ищем: "йцу", ответ: 5
@@ -174,86 +175,7 @@ import re
 # else:
 #     print('Вы ввели буквы')
 
-player1 = input('Введите своё имя!')
-print(f'привет {player1}')
-
-def is_number_of_candies(): 
-    '''
-    начальное количество конфет
-    ''' 
-    while True:
-        try:
-            number_of_candies = int(input('Введите количество конфет'))
-            if number_of_candies > 0 and number_of_candies > 10:
-                break
-            else:
-                print('Ошибка. Ещё раз.')
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-    return number_of_candies
-number_of_candies = is_number_of_candies()
-
-min = 1
-
-def max_candies(): 
-    '''
-    начальное количество конфет
-    ''' 
-    while True:
-        try:
-            max = int(input('Введите сколько можно максимум брать конфет'))
-            if max > min and max < number_of_candies/3:
-                break
-            else:
-                print('Ошибка. Ещё раз.')
-        except ValueError:
-            print('Ошибка. Ожидалось вещественное число.')
-    return max
-max = max_candies()
-
-print(f'у нас конфет {number_of_candies}, можно взять конфет от {min} до {max}')
-print(f'{player1}, давайте определим кто ходит первый и начнём игру!!!')
-
-
-def step_bot(number_of_candies, min, max):
-    if number_of_candies > (min + max)+1: # если число конфет больше (min + max)+1
-        step_bot = random.randint(1, max)
-        number_of_candies = number_of_candies - step_bot
-        print(f' бот взял {step_bot} конфет и осталось {number_of_candies} конфет')
-        return player_step(number_of_candies, min, max)
-    elif number_of_candies == (min + max): # если число конфет == (min + max)+1
-        step_bot = max
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфета')
-        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    elif number_of_candies == max: # если число конфет == max
-        step_bot = max-1
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфета')
-        print(f' {player1} - ПРОИГРАЛ! осталась {number_of_candies} конфета!')
-    elif number_of_candies == (min + max)+1: # если число конфет == (min + max)+1
-        step_bot = min + max
-        number_of_candies = number_of_candies - step_bot
-        print(f'  бот взял {step_bot} конфет и осталось {number_of_candies} конфет')
-        print(f'  осталась {number_of_candies} конфета! {player1} - ВЫ проиграли!')
-        return player_step(number_of_candies, min, max)
-    elif number_of_candies == 1:
-        print(f' {player1} - ВЫИГРАЛ! осталась {number_of_candies} конфета!')
-
-def player_step(number_of_candies, min, max):
-    if number_of_candies != 1:
-        step_player = int(input(f'{player1} введите число конфет - >'))
-        number_of_candies = number_of_candies - step_player
-        print(f'{player1} взял {step_player} конфет. Осталось {number_of_candies}')
-        return step_bot(number_of_candies, min, max)
-    if number_of_candies == 1:
-        print(f' {player1} - ВЫ проиграли! осталась {number_of_candies} конфета!')
-
-first_step = random.randint(1, 2)
-if first_step == 1:
-    print(f'{player1}, Вы начинаете игру!!!')
-    number_of_candies = player_step(number_of_candies, min, max)
-    #функция если первым ходит игрок
-if first_step == 2:
-    print('Игру начинает Бот!!!')
-    number_of_candies = step_bot(number_of_candies, min, max) # шаг сделал бот
+spi= ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"]
+sti = "фыв"
+otvet= list(filter(lambda x: sti in x ,spi))
+print(otvet)
